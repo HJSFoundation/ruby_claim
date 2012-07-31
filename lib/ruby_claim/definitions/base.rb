@@ -24,12 +24,12 @@ module RubyClaim::Definition
     end
 
     def get_field(str)
-      self.class.fields.select {|f| f.name.to_s == str }.first
+      self.class.fields.select {|f| f.name == str.to_sym }.first
     end
 
     def method_missing(method_name, *args)
       @values ||= {}
-      field = get_field(get_field_name(method_name.to_s))
+      field = get_field(get_field_name(method_name))
 
       raise StandardError, "Field (#{method_name.to_s}) is not defined. =p" if field.nil?
 

@@ -1,9 +1,11 @@
 module RubyClaim
   class Claim
 
-    def initialize
-      @claim_fields = RubyClaim::Definition::ClaimFields.new
-      @services     = []
+    def initialize(options = {})
+      @claim_fields    = RubyClaim::Definition::ClaimFields.new
+      @services        = []
+
+      @hide_background = !!options[:hide_background]
     end
 
     def build_service
@@ -13,17 +15,35 @@ module RubyClaim
       @services.last
     end
 
-    def draw
-      options = { :page_size => [2560,3312],
+    def draw(filename)
+      options = { :page_size => 'LETTER',
                   :page_layout => :portrait,
-                  :margin => 0,
-                  :background => File.join(File.dirname(__FILE__), "/ext/cropped_cms_1500.jpg")
+                  :margin => 0
                 }
 
-      Prawn::Document.generate(File.join(File.dirname(__FILE__), "/ext/sample.pdf"), options) do
+      Prawn::Document.generate(filename, options) do |pdf|
+        #image = [1700,2200] | LETTER = 612x792
+
+        unless @hide_background
+          pdf.image File.join(File.dirname(__FILE__), "ext/cms_1500.jpg"), :scale => 0.36
+        end
+
+        @claim_fields.values.each do |field_name, value|
+          field = @claim_fields.get_field(field_name)
+
+          pdf.draw_text value, :at => [field.left, field.bottom]
+        end
+
+        @services.each do |service_fields|
+          service_fields.values.each do |field_name, value|
+            field = service_fields.get_field(field_name)
+
+            pdf.draw_text value, :at => [field.left, field.bottom]
+          end
+        end
       end
 
-      `open /Users/jjackson/Desktop/prawn_test.pdf`
+      `open #{filename}`
     end
 
     def method_missing(method_name, *args)
