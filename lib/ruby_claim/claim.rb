@@ -17,9 +17,10 @@ module RubyClaim
       options = { :page_size => [2560,3312],
                   :page_layout => :portrait,
                   :margin => 0,
-                  :background => "/Users/jjackson/Desktop/cropped_cms_1500.jpg" }
+                  :background => File.join(File.dirname(__FILE__), "/ext/cropped_cms_1500.jpg")
+                }
 
-      Prawn::Document.generate("/Users/jjackson/Desktop/prawn_test.pdf", options) do
+      Prawn::Document.generate(File.join(File.dirname(__FILE__), "/ext/sample.pdf"), options) do
       end
 
       `open /Users/jjackson/Desktop/prawn_test.pdf`
