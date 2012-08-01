@@ -120,17 +120,44 @@ module RubyClaim::Definition
     field     name:        :patient_address,
               id:          '5',
               description: '',
-              bottom:      '',
-              left:        '',
+              bottom:      22.1.cm,
+              left:        0.8.cm,
               loop_name:   '2010CA ',
               segment:     '',
               type:        :boolean
 
-    field     name:        :patient_relationship_to_insured,
+    field     name:        :patient_relationship_to_insured_self,
               id:          '6',
               description: 'Titled Individual Relationship Code in the 837P .',
-              bottom:      '',
-              left:        '',
+              bottom:      22.1.cm,
+              left:        8.9.cm,
+              loop_name:   '2000B 2000C ',
+              segment:     '',
+              type:        :boolean
+
+    field     name:        :patient_relationship_to_insured_spouse,
+              id:          '6',
+              description: 'Titled Individual Relationship Code in the 837P .',
+              bottom:      22.1.cm,
+              left:        10.15.cm,
+              loop_name:   '2000B 2000C ',
+              segment:     '',
+              type:        :boolean
+
+    field     name:        :patient_relationship_to_insured_child,
+              id:          '6',
+              description: 'Titled Individual Relationship Code in the 837P .',
+              bottom:      22.1.cm,
+              left:        11.2.cm,
+              loop_name:   '2000B 2000C ',
+              segment:     '',
+              type:        :boolean
+
+    field     name:        :patient_relationship_to_insured_other,
+              id:          '6',
+              description: 'Titled Individual Relationship Code in the 837P .',
+              bottom:      22.1.cm,
+              left:        12.40.cm,
               loop_name:   '2000B 2000C ',
               segment:     '',
               type:        :boolean
@@ -138,7 +165,7 @@ module RubyClaim::Definition
     field     name:        :insured_address,
               id:          '7',
               description: 'Titled Subscriber Address in the 837P.',
-              bottom:      '',
+              bottom:      22.1.cm,
               left:        13.25.cm,
               loop_name:   '2010BA ',
               segment:     '',
@@ -157,7 +184,7 @@ module RubyClaim::Definition
               id:          '9',
               description: 'Titled Other Subscriber Name in the 837P. ',
               bottom:      '',
-              left:        '',
+              left:        0.8.cm,
               loop_name:   '2330A ',
               segment:     '',
               type:        :boolean
@@ -166,7 +193,7 @@ module RubyClaim::Definition
               id:          '9c ',
               description: 'Employer\'s Name and School Name do not exist in the 837P.',
               bottom:      '',
-              left:        '',
+              left:        0.8.cm,
               loop_name:   'N/A ',
               segment:     '',
               type:        :boolean
@@ -193,7 +220,7 @@ module RubyClaim::Definition
               id:          '9a ',
               description: 'Titled Insured Group or Policy Number in the 837P.',
               bottom:      '',
-              left:        '',
+              left:        0.8.cm,
               loop_name:   '2320',
               segment:     '',
               type:        :boolean
@@ -346,7 +373,7 @@ module RubyClaim::Definition
               id:          '17',
               description: '',
               bottom:      '',
-              left:        '',
+              left:        0.8.cm,
               loop_name:   '2310A (referring) 2310D (supervising) ',
               segment:     '',
               type:        :boolean
@@ -427,7 +454,7 @@ module RubyClaim::Definition
               id:          '25',
               description: 'Titled Reference Identification Qualifier and Billing Provider Tax Identification Number in the 837P .',
               bottom:      '',
-              left:        '',
+              left:        0.8.cm,
               loop_name:   '2010AA ',
               segment:     '',
               type:        :boolean
@@ -481,7 +508,7 @@ module RubyClaim::Definition
               id:          '31',
               description: 'Titled Provider or Supplier Signature Indicator in the 837P .',
               bottom:      '',
-              left:        '',
+              left:        0.8.cm,
               loop_name:   '2300',
               segment:     '',
               type:        :boolean

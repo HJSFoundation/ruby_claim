@@ -25,6 +25,12 @@ module RubyClaim
   c.insured_id_number = 'insured_id_number'
   c.insured_name      = 'insured_name'
   c.patient_name      = 'patient_name'
+  c.patient_address   = 'patient_address'
+  c.insured_address   = 'insured_address'
+  c.patient_relationship_to_insured_self = 'X'
+  c.patient_relationship_to_insured_spouse = 'X'
+  c.patient_relationship_to_insured_child = 'X'
+  c.patient_relationship_to_insured_other = 'X'
 
   c.draw(File.join(File.dirname(__FILE__), "ruby_claim/ext/sample.pdf"))
 end
