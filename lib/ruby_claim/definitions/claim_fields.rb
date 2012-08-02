@@ -1,553 +1,521 @@
 module RubyClaim::Definition
   class ClaimFields < RubyClaim::Definition::Base
-    field     name:        :black_lung,
+    field     name:        :insurance_type,
               id:          '1',
-              description: 'Titled Claim Filing Indicator Code in the 837P.',
-              bottom:      23.77.cm,
-              left:        10.38.cm,
-              loop_name:   '2000B ',
-              segment:     '',
-              type:        :boolean
-
-    field     name:        :feca,
-              id:          '1',
-              description: 'Titled Claim Filing Indicator Code in the 837P.',
-              bottom:      23.77.cm,
-              left:        10.38.cm,
-              loop_name:   '2000B ',
-              segment:     '',
-              type:        :boolean
-
-    field     name:        :group_health_plan,
-              id:          '1',
-              description: 'Titled Claim Filing Indicator Code in the 837P.',
-              bottom:      23.77.cm,
-              left:        8.4.cm,
-              loop_name:   '2000B ',
-              segment:     '',
-              type:        :boolean
-
-    field     name:        :champva,
-              id:          '1',
-              description: 'Titled Claim Filing Indicator Code in the 837P.',
-              bottom:      23.77.cm,
-              left:        6.55.cm,
-              loop_name:   '2000B ',
-              segment:     '',
-              type:        :boolean
-
-    field     name:        :tricare_champus,
-              id:          '1',
-              description: 'Titled Claim Filing Indicator Code in the 837P.',
-              bottom:      23.77.cm,
-              left:        4.3.cm,
-              loop_name:   '2000B ',
-              segment:     '',
-              type:        :boolean
-
-    field     name:        :medicaid,
-              id:          '1',
-              description: 'Titled Claim Filing Indicator Code in the 837P.',
-              bottom:      23.77.cm,
-              left:        2.5.cm,
-              loop_name:   '2000B ',
-              segment:     '',
-              type:        :boolean
-
-    field     name:        :medicare,
-              id:          '1',
-              description: 'Titled Claim Filing Indicator Code in the 837P.',
-              bottom:      23.77.cm,
-              left:        0.8.cm,
-              loop_name:   '2000B ',
-              segment:     '',
-              type:        :boolean
+              top:         109.36,
+              left:        nil,
+              width:       10,
+              height:      10,
+              type:        :checkbox,
+              options:     { :black_lung => 293.49,
+                             :group_health_plan => 235.98,
+                             :champva => 185.52,
+                             :tricare_champus => 120.32,
+                             :medicaid => 69.21,
+                             :medicare => 20.87 }
 
     field     name:        :carrier_other,
               id:          '1',
-              description: 'Titled Claim Filing Indicator Code in the 837P.',
-              bottom:      23.77.cm,
-              left:        11.9.cm,
-              loop_name:   '2000B ',
-              segment:     '',
-              type:        :boolean
+              top:         109.36,
+              left:        336.34,
+              height:      10,
+              width:       10,
+              type:        :checkbox
 
     field     name:        :insured_id_number,
               id:          '1a ',
-              description: 'Titled Subscriber Primary Identifier in the 837P.',
-              bottom:      23.77.cm,
-              left:        13.25.cm,
-              loop_name:   '2010BA ',
-              segment:     '',
-              type:        :boolean
+              top:         108.56,
+              left:        377.48,
+              height:      10.3,
+              width:       178.08,
+              type:        :string
 
     field     name:        :patient_name,
               id:          '2',
-              description: '',
-              bottom:      22.95.cm,
-              left:        0.8.cm,
-              loop_name:   '2010CA or 2010BA ',
-              segment:     '',
-              type:        :boolean
+              top:         131.51,
+              left:        23.93,
+              height:      10.28,
+              width:       190.72,
+              type:        :string
 
     field     name:        :patient_date_of_birth,
               id:          '3',
-              description: 'Sex is titled Gender in the 837P .',
-              bottom:      '',
+              top:         135,
               left:        '',
-              loop_name:   '2010CA or 2010BA ',
-              segment:     '',
-              type:        :boolean
+              height:      8.28,
+              width:       11.04,
+              type:        :date,
+              options:     {year: 289.22, month: 241, day: 262.61}
 
-    field     name:        :patient_gender,
+    field     name:        :patient_sex,
               id:          '3',
-              description: 'Sex is titled Gender in the 837P .',
-              bottom:      '',
+              top:         133.61,
               left:        '',
-              loop_name:   '2010CA or 2010BA ',
-              segment:     '',
-              type:        :boolean
+              height:      10,
+              width:       10,
+              type:        :checkbox,
+              options:     {:male => 315.37, :female => 351.32}
 
     field     name:        :insured_name,
               id:          '4',
-              description: 'Titled Subscriber in the 837P .',
-              bottom:      22.95.cm,
-              left:        13.25.cm,
-              loop_name:   '2010BA ',
-              segment:     '',
-              type:        :boolean
+              top:         132.51,
+              left:        377.48,
+              height:      10.28,
+              width:       178.08,
+              type:        :string
 
     field     name:        :patient_address,
               id:          '5',
-              description: '',
-              bottom:      22.1.cm,
-              left:        0.8.cm,
-              loop_name:   '2010CA ',
-              segment:     '',
-              type:        :boolean
+              top:         156,
+              left:        23.93,
+              height:      10.28,
+              width:       190.72,
+              type:        :string
 
-    field     name:        :patient_relationship_to_insured_self,
+    field     name:        :patient_relationship_to_insured,
               id:          '6',
-              description: 'Titled Individual Relationship Code in the 837P .',
-              bottom:      22.1.cm,
-              left:        8.9.cm,
-              loop_name:   '2000B 2000C ',
-              segment:     '',
-              type:        :boolean
+              top:         156.38,
+              left:        nil,
+              height:      10,
+              width:       10,
+              type:        :checkbox,
+              options:     {:self => 250.75, :spouse => 286.84, :child => 315.5, :other => 351.1}
 
-    field     name:        :patient_relationship_to_insured_spouse,
-              id:          '6',
-              description: 'Titled Individual Relationship Code in the 837P .',
-              bottom:      22.1.cm,
-              left:        10.15.cm,
-              loop_name:   '2000B 2000C ',
-              segment:     '',
-              type:        :boolean
+    field     name:        :patient_city,
+              id:          '5',
+              top:         177.69,
+              left:        23.93,
+              height:      10.28,
+              width:       190.72,
+              type:        :string
 
-    field     name:        :patient_relationship_to_insured_child,
-              id:          '6',
-              description: 'Titled Individual Relationship Code in the 837P .',
-              bottom:      22.1.cm,
-              left:        11.2.cm,
-              loop_name:   '2000B 2000C ',
-              segment:     '',
-              type:        :boolean
+    field     name:        :patient_state,
+              id:          '5',
+              top:         176.53,
+              left:        204.44,
+              height:      13.44,
+              width:       19.58,
+              type:        :string
 
-    field     name:        :patient_relationship_to_insured_other,
-              id:          '6',
-              description: 'Titled Individual Relationship Code in the 837P .',
-              bottom:      22.1.cm,
-              left:        12.40.cm,
-              loop_name:   '2000B 2000C ',
-              segment:     '',
-              type:        :boolean
+    field     name:        :patient_zip,
+              id:          '5',
+              top:         203.4,
+              left:        23.93,
+              height:      10.28,
+              width:       85.22,
+              type:        :string
+
+    field     name:        :patient_phone,
+              id:          '5',
+              top:         203.02,
+              left:        nil,
+              height:      11.9,
+              width:       nil,
+              type:        :phone,
+              options:     {area_code: [122.67, 21.88], number: [152, 67.56]}
 
     field     name:        :insured_address,
               id:          '7',
-              description: 'Titled Subscriber Address in the 837P.',
-              bottom:      22.1.cm,
-              left:        13.25.cm,
-              loop_name:   '2010BA ',
-              segment:     '',
-              type:        :boolean
+              top:         156,
+              left:        377.48,
+              height:      10.28,
+              width:       178.08,
+              type:        :string
 
-    field     name:        :patient_status,
+    field     name:        :insured_city,
+              id:          '7',
+              top:         176.73,
+              left:        375.35,
+              height:      13.91,
+              width:       190.72,
+              type:        :string
+
+    field     name:        :insured_state,
+              id:          '7',
+              top:         176.53,
+              left:        546.16,
+              height:      13.44,
+              width:       19.58,
+              type:        :string
+
+    field     name:        :insured_zip,
+              id:          '7',
+              top:         200.62,
+              left:        375.25,
+              height:      13.91,
+              width:       86.56,
+              type:        :string
+
+    field     name:        :insured_phone,
+              id:          '7',
+              top:         203.02,
+              left:        nil,
+              height:      11.9,
+              width:       nil,
+              type:        :phone,
+              options:     {area_code: [484.46, 21.88], number: [510.66, 67.56]}
+
+    field     name:        :patient_marital_status,
               id:          '8',
-              description: 'Patient Status does not exist in the 837P.',
-              bottom:      '',
+              top:         179.99,
               left:        '',
-              loop_name:   'N/A ',
-              segment:     '',
-              type:        :boolean
+              height:      10.27,
+              width:       9.98,
+              type:        :checkbox,
+              options:     {:single => 265.66, :married => 308.65, :other => 351.55}
+
+    field     name:        :patient_employment_status,
+              id:          '8',
+              top:         204.08,
+              left:        '',
+              height:      10.27,
+              width:       9.98,
+              type:        :checkbox,
+              options:     {:employed => 265.66, :full_time_student => 308.65, :part_time_student => 351.55}
 
     field     name:        :other_insured_name,
               id:          '9',
-              description: 'Titled Other Subscriber Name in the 837P. ',
-              bottom:      '',
-              left:        0.8.cm,
-              loop_name:   '2330A ',
-              segment:     '',
-              type:        :boolean
+              top:         227.48,
+              left:        23.93,
+              height:      10.28,
+              width:       198.36,
+              type:        :string
 
     field     name:        :employer_name_or_school_name,
               id:          '9c ',
-              description: 'Employer\'s Name and School Name do not exist in the 837P.',
-              bottom:      '',
-              left:        0.8.cm,
-              loop_name:   'N/A ',
-              segment:     '',
-              type:        :boolean
+              top:         299.2,
+              left:        23.93,
+              height:      10.28,
+              width:       200,
+              type:        :string
 
     field     name:        :other_insured_date_of_birth,
-              id:          '9b ',
-              description: 'Other Insured\'s Date of Birth and Sex do not exist in the 837P.',
-              bottom:      '',
+              id:          '9b',
+              top:         278.3,
               left:        '',
-              loop_name:   'N/A ',
-              segment:     '',
-              type:        :boolean
+              height:      8.28,
+              width:       11.04,
+              type:        :date,
+              options:     {year: 72.29, month: 31.79, day: 52.72}
 
-    field     name:        :other_insured_gender,
-              id:          '9b ',
-              description: 'Other Insured\'s Date of Birth and Sex do not exist in the 837P.',
-              bottom:      '',
+    field     name:        :other_insured_sex,
+              id:          '9b',
+              top:         276.57,
               left:        '',
-              loop_name:   'N/A ',
-              segment:     '',
-              type:        :boolean
+              height:      10,
+              width:       10,
+              type:        :checkbox,
+              options:     {:male => 143.48, :female => 185.47}
 
     field     name:        :other_insured_policy_or_group_number,
               id:          '9a ',
-              description: 'Titled Insured Group or Policy Number in the 837P.',
-              bottom:      '',
-              left:        0.8.cm,
-              loop_name:   '2320',
-              segment:     '',
-              type:        :boolean
+              top:         252.85,
+              left:        23.93,
+              height:      10.28,
+              width:       200.53,
+              type:        :string
 
     field     name:        :condition_related_to_other_accident,
-              id:          '10c ',
-              description: 'Titled Related Causes Code in the 837P.',
-              bottom:      '',
+              id:          '10c',
+              top:         300.14,
               left:        '',
-              loop_name:   '2300',
-              segment:     '',
-              type:        :boolean
+              height:      9.85,
+              width:       9.85,
+              type:        :boolean,
+              options:     {:yes => 265.85, :no => 308.72}
 
     field     name:        :condition_related_to_employment,
-              id:          '10a ',
-              description: 'Titled Related Causes Code in the 837P.',
-              bottom:      '',
+              id:          '10a',
+              top:         252,
               left:        '',
-              loop_name:   '2300',
-              segment:     '',
-              type:        :boolean
+              height:      9.85,
+              width:       9.85,
+              type:        :boolean,
+              options:     {:yes => 265.85, :no => 308.72}
 
     field     name:        :condition_related_to_auto_accident,
-              id:          '10b ',
-              description: 'Titled Related Causes Code in the 837P.',
-              bottom:      '',
+              id:          '10a',
+              top:         276.18,
               left:        '',
-              loop_name:   '2300',
-              segment:     '',
-              type:        :boolean
+              height:      9.85,
+              width:       9.85,
+              type:        :boolean,
+              options:     {:yes => 265.85, :no => 308.72}
 
     field     name:        :insured_employer_or_school_name,
               id:          '11b ',
-              description: 'Insured\'s Employer Name or School Name',
-              bottom:      '',
+              top:         275.78,
               left:        13.25.cm,
-              loop_name:   'N/A ',
-              segment:     '',
-              type:        :boolean
+              height:      10.28,
+              width:       211.25,
+              type:        :string
 
     field     name:        :is_there_another_health_benefit_plan,
               id:          '11d ',
-              description: 'Presence of Loop 2320 indicates Y (yes) to the question.',
-              bottom:      '',
+              top:         324.06,
               left:        '',
-              loop_name:   '2320',
-              segment:     '',
-              type:        :boolean
+              height:      9.98,
+              width:       9.98,
+              type:        :boolean,
+              options:     {:yes => 387.66, :no => 423.75}
 
     field     name:        :insured_policy_or_group_number,
               id:          '11',
-              description: 'Titled Subscriber Group or Policy Number in the 837P.',
-              bottom:      '',
-              left:        13.25.cm,
-              loop_name:   '2000B ',
-              segment:     '',
-              type:        :boolean
+              top:         227.67,
+              left:        377.48,
+              height:      10.28,
+              width:       209.07,
+              type:        :string
 
     field     name:        :insured_date_of_birth,
               id:          '11a ',
-              description: 'Titled Subscriber Birth Date and Subscriber Gender Code in the 837P.',
-              bottom:      '',
+              top:         255.1,
               left:        '',
-              loop_name:   '2010BA ',
-              segment:     '',
-              type:        :boolean
+              height:      8.28,
+              width:       11.04,
+              type:        :date,
+              options:     {:year => 441.28, :month => 400.2, :day => 420.55}
 
-    field     name:        :insured_gender,
+    field     name:        :insured_sex,
               id:          '11a ',
-              description: 'Titled Subscriber Birth Date and Subscriber Gender Code in the 837P.',
-              bottom:      '',
+              top:         252.28,
               left:        '',
-              loop_name:   '2010BA ',
-              segment:     '',
-              type:        :boolean
+              height:      10.24,
+              width:       9.98,
+              type:        :checkbox,
+              options:     {:male => 503.08, :female => 553.87}
 
     field     name:        :insurance_plan_or_program_name,
-              id:          '11c ',
-              description: 'Titled Subscriber Group Name in the 837P.',
-              bottom:      '',
-              left:        13.25.cm,
-              loop_name:   '2000B ',
-              segment:     '',
-              type:        :boolean
+              id:          '11c',
+              top:         300.35,
+              left:        377.48,
+              height:      10.28,
+              width:       211.38,
+              type:        :string
 
     field     name:        :patient_or_authorized_signature,
               id:          '12',
-              description: 'Titled Release of Information Code in the 837P .',
-              bottom:      '',
-              left:        '',
-              loop_name:   '2300',
-              segment:     '',
-              type:        :boolean
+              top:         368.07,
+              left:        58.76,
+              height:      10.28,
+              width:       176.86,
+              type:        :string
+
+    field     name:        :patient_or_authorized_signature_date,
+              id:          '12',
+              top:         368.07,
+              left:        280.16,
+              height:      10.28,
+              width:       91.26,
+              type:        :string
 
     field     name:        :insured_or_authorized_signature,
               id:          '13',
-              description: 'Titled Benefits Assignment Certification Indicator in the 837P .',
-              bottom:      '',
-              left:        '',
-              loop_name:   '2300',
-              segment:     '',
-              type:        :boolean
+              top:         368.07,
+              left:        417.17,
+              height:      10.28,
+              width:       169.36,
+              type:        :string
 
     field     name:        :date_of_current_illness_injury_pregnancy,
               id:          '14',
-              description: 'Titled in the 837P:',
-              bottom:      '',
+              top:         '',
               left:        '',
-              loop_name:   '2300',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
     field     name:        :if_patient_has_had_similar_illness,
               id:          '15',
-              description: 'If Patient Has Had Same or Similar Illness does not exist in 837P.',
-              bottom:      '',
+              top:         '',
               left:        '',
-              loop_name:   'N/A ',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
     field     name:        :dates_unable_to_work_occupation_from,
               id:          '16',
-              description: 'Titled Disability From Date and Work Return Date in the 837P.',
-              bottom:      '',
+              top:         '',
               left:        '',
-              loop_name:   '2300',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
     field     name:        :dates_unable_to_work_occupation_to,
               id:          '16',
-              description: 'Titled Disability From Date and Work Return Date in the 837P.',
-              bottom:      '',
+              top:         '',
               left:        '',
-              loop_name:   '2300',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
     field     name:        :other_provider_source,
               id:          '17a ',
-              description: 'Titled Referring Provider Secondary Identifier and Supervising Provider Secondary Identifier in the 837P .',
-              bottom:      '',
+              top:         '',
               left:        '',
-              loop_name:   '2310A (referring) 2310D (supervising) ',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
     field     name:        :referring_provider_or_other_source_name,
               id:          '17',
-              description: '',
-              bottom:      '',
+              top:         '',
               left:        0.8.cm,
-              loop_name:   '2310A (referring) 2310D (supervising) ',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
     field     name:        :hospitalization_related_to_current_service_from,
               id:          '18',
-              description: 'Titled Related Hospitalization Admission Date and Related Hospitalization Discharge Date in the 837P.',
-              bottom:      '',
+              top:         '',
               left:        '',
-              loop_name:   '2300',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
     field     name:        :hospitalization_related_to_current_service_to,
               id:          '18',
-              description: 'Titled Related Hospitalization Admission Date and Related Hospitalization Discharge Date in the 837P.',
-              bottom:      '',
+              top:         '',
               left:        '',
-              loop_name:   '2300',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
     field     name:        :reserved_for_local_use,
               id:          '19',
-              description: '',
-              bottom:      '',
+              top:         '',
               left:        '',
-              loop_name:   '2300',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
     field     name:        :outside_lab,
               id:          '20',
-              description: 'Titled Purchased Service Charge Amount in the 837P .',
-              bottom:      '',
+              top:         '',
               left:        '',
-              loop_name:   '2400',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
     field     name:        :outside_lab_charges,
               id:          '20',
-              description: 'Titled Purchased Service Charge Amount in the 837P .',
-              bottom:      '',
+              top:         '',
               left:        '',
-              loop_name:   '2400',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
     field     name:        'Diagnosis or Nature of Illness or Injury',
               id:          '21',
-              description: '',
-              bottom:      '',
+              top:         '',
               left:        '',
-              loop_name:   '2300',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
     field     name:        'Medicaid Resubmission and/or Original Reference Number',
               id:          '22',
-              description: 'Titled Claim Frequency Code in the 837P.',
-              bottom:      '',
+              top:         '',
               left:        '',
-              loop_name:   '2300',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
     field     name:        'Prior Authorization Number',
               id:          '23',
-              description: 'Titled Prior Authorization Number in the 837P.',
-              bottom:      '',
+              top:         '',
               left:        '',
-              loop_name:   '2300',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
     field     name:        'Federal Tax ID Number',
               id:          '25',
-              description: 'Titled Reference Identification Qualifier and Billing Provider Tax Identification Number in the 837P .',
-              bottom:      '',
+              top:         '',
               left:        0.8.cm,
-              loop_name:   '2010AA ',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
     field     name:        'Patient\'s Account No.',
               id:          '26',
-              description: 'Titled Patient Control Number in the 837P.',
-              bottom:      '',
+              top:         '',
               left:        '',
-              loop_name:   '2300',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
     field     name:        'Accept Assignment? ',
               id:          '27',
-              description: 'Titled Assignment or Plan Participation Code in the 837P .',
-              bottom:      '',
+              top:         '',
               left:        '',
-              loop_name:   '2300',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
     field     name:        'Total Charge ',
               id:          '28',
-              description: 'Titled Total Claim Charge Amount in the 837P.',
-              bottom:      '',
+              top:         '',
               left:        '',
-              loop_name:   '2300',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
     field     name:        'Amount Paid',
               id:          '29',
-              description: 'Titled Patient Amount Paid in the 837P.',
-              bottom:      '',
+              top:         '',
               left:        '',
-              loop_name:   '2300',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
     field     name:        'Balance Due ',
               id:          '30',
-              description: 'Balance Due does not exist in the 837P.',
-              bottom:      '',
+              top:         '',
               left:        '',
-              loop_name:   'N/A ',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
     field     name:        'Signature of Physician or Supplier Including Degrees or Credentials',
               id:          '31',
-              description: 'Titled Provider or Supplier Signature Indicator in the 837P .',
-              bottom:      '',
+              top:         '',
               left:        0.8.cm,
-              loop_name:   '2300',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
     field     name:        'Service Facility Location Information',
               id:          '32',
-              description: '',
-              bottom:      '',
+              top:         '',
               left:        '',
-              loop_name:   '2310C ',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
     field     name:        'NPI #',
               id:          '33a ',
-              description: 'Titled Billing Provider Identifier in the 837P.',
-              bottom:      '',
+              top:         '',
               left:        '',
-              loop_name:   '2010AA ',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
     field     name:        'Other ID # ',
               id:          '33b ',
-              description: 'Titled Provider Taxonomy Code in the 837P.',
-              bottom:      '',
+              top:         '',
               left:        '',
-              loop_name:   '2000A 2010AA ',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
     field     name:        'Billing Provider Info & Ph #',
               id:          '33',
-              description: '',
-              bottom:      '',
+              top:         '',
               left:        '',
-              loop_name:   '2010AA ',
-              segment:     '',
-              type:        :boolean
+              height:      nil,
+              width:       nil,
+              type:        :string
 
   end
 end

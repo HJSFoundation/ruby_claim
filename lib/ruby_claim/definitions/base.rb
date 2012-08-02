@@ -10,10 +10,11 @@ module RubyClaim::Definition
       f             = RubyClaim::Field.new
       f.id          = field[:id]
       f.left        = field[:left]
-      f.bottom      = field[:bottom]
-      f.description = field[:description]
-      f.loop_name   = field[:loop]
-      f.segment     = field[:segment]
+      f.type        = field[:type]
+      f.options     = field[:options]
+      f.top         = field[:top]
+      f.height      = field[:height]
+      f.width       = field[:width]
       f.name        = field[:name]
 
       fields << f
