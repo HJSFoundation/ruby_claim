@@ -319,203 +319,317 @@ module RubyClaim::Definition
 
     field     name:        :date_of_current_illness_injury_pregnancy,
               id:          '14',
-              top:         '',
+              top:         399.04,
               left:        '',
-              height:      nil,
-              width:       nil,
-              type:        :string
+              height:      7.68,
+              width:       11.26,
+              type:        :date,
+              options:     {:year => 72.26, :month => 32.85, :day => 52.56}
 
-    field     name:        :if_patient_has_had_similar_illness,
+    field     name:        :date_if_patient_has_had_similar_illness,
               id:          '15',
-              top:         '',
+              top:         398.79,
               left:        '',
-              height:      nil,
-              width:       nil,
-              type:        :string
+              height:      7.68,
+              width:       11.52,
+              type:        :date,
+              options:     {:year => 326.12, :month => 284.66, :day => 305.65}
 
     field     name:        :dates_unable_to_work_occupation_from,
               id:          '16',
-              top:         '',
+              top:         398.79,
               left:        '',
-              height:      nil,
-              width:       nil,
-              type:        :string
+              height:      7.68,
+              width:       11.52,
+              type:        :date,
+              options:     {:year => 449.98, :month => 404.94, :day => 426.69}
 
     field     name:        :dates_unable_to_work_occupation_to,
               id:          '16',
-              top:         '',
+              top:         398.53,
               left:        '',
-              height:      nil,
-              width:       nil,
-              type:        :string
-
-    field     name:        :other_provider_source,
-              id:          '17a ',
-              top:         '',
-              left:        '',
-              height:      nil,
-              width:       nil,
-              type:        :string
+              height:      7.93,
+              width:       11.77,
+              type:        :date,
+              options:     {:year => 547.48, :month => 506.28, :day => 526.24}
 
     field     name:        :referring_provider_or_other_source_name,
+              id:          '17a ',
+              top:         419.73,
+              left:        23.93,
+              height:      10.28,
+              width:       182.72,
+              type:        :string
+
+    field     name:        :referring_provider_or_source_npi,
               id:          '17',
-              top:         '',
-              left:        0.8.cm,
-              height:      nil,
-              width:       nil,
+              top:         422.59,
+              left:        247.3,
+              height:      7.68,
+              width:       123.09,
               type:        :string
 
     field     name:        :hospitalization_related_to_current_service_from,
               id:          '18',
-              top:         '',
-              left:        '',
-              height:      nil,
-              width:       nil,
-              type:        :string
+              top:         424.35,
+              left:        404.43,
+              height:      7.17,
+              width:       11.52,
+              type:        :date,
+              options:     {:year => 449.72, :month => 404.43, :day => 426.94}
 
     field     name:        :hospitalization_related_to_current_service_to,
               id:          '18',
-              top:         '',
-              left:        '',
-              height:      nil,
-              width:       nil,
-              type:        :string
+              top:         424.35,
+              left:        506.53,
+              height:      7.17,
+              width:       11.52,
+              type:        :date,
+              options:     {:year => 547.48, :month => 506.53, :day => 526.24}
 
     field     name:        :reserved_for_local_use,
               id:          '19',
-              top:         '',
-              left:        '',
-              height:      nil,
-              width:       nil,
+              top:         443.27,
+              left:        23.93,
+              height:      10.28,
+              width:       343.13,
               type:        :string
 
     field     name:        :outside_lab,
               id:          '20',
-              top:         '',
+              top:         444.85,
               left:        '',
-              height:      nil,
-              width:       nil,
-              type:        :string
+              height:      9.98,
+              width:       9.72,
+              type:        :boolean,
+              options:     {:yes => 388.81, :no => 424.9}
 
     field     name:        :outside_lab_charges,
               id:          '20',
-              top:         '',
+              top:         444.34,
               left:        '',
-              height:      nil,
+              height:      10.28,
               width:       nil,
-              type:        :string
+              type:        :money,
+              options:     {dollars: [457.14,65], cents: [527,61.16]}
 
-    field     name:        'Diagnosis or Nature of Illness or Injury',
+    field     name:        :diagnosis_or_nature_of_illness_or_injury,
               id:          '21',
               top:         '',
               left:        '',
-              height:      nil,
-              width:       nil,
-              type:        :string
+              height:      9.72,
+              width:       26.36,
+              type:        :diagnosis_code,
+              options:     { 1 => [{top:467.63, left:36.69},  {top:467.37, left:63.56}],
+                             2 => [{top:491.94, left:36.69},  {top:491.94, left:63.56}],
+                             3 => [{top:467.63, left:231.43}, {top:467.63, left:258.3}],
+                             4 => [{top:491.94, left:231.43}, {top:491.94, left:258.3}] }
 
-    field     name:        'Medicaid Resubmission and/or Original Reference Number',
+    field     name:        :medicaid_resubmission_code,
               id:          '22',
-              top:         '',
-              left:        '',
-              height:      nil,
-              width:       nil,
+              top:         469.12,
+              left:        376.28,
+              height:      10.28,
+              width:       76.26,
               type:        :string
 
-    field     name:        'Prior Authorization Number',
+    field     name:        :medicaid_resubmission_orginal_ref_number,
+              id:          '22',
+              top:         469.12,
+              left:        457.91,
+              height:      10.28,
+              width:       129.74,
+              type:        :string
+
+    field     name:        :prior_authorization_number,
               id:          '23',
-              top:         '',
-              left:        '',
-              height:      nil,
-              width:       nil,
+              top:         491.89,
+              left:        376.28,
+              height:      10.28,
+              width:       212.91,
               type:        :string
 
-    field     name:        'Federal Tax ID Number',
+    field     name:        :federal_tax_id,
               id:          '25',
-              top:         '',
-              left:        0.8.cm,
-              height:      nil,
-              width:       nil,
-              type:        :string
+              top:         683.74,
+              left:        nil,
+              height:      10.24,
+              width:       9.6,
+              type:        :checkbox,
+              options:     {ssn: 136.75, ein: 150.69}
 
-    field     name:        'Patient\'s Account No.',
+    field     name:        :patient_account_number,
               id:          '26',
-              top:         '',
-              left:        '',
-              height:      nil,
-              width:       nil,
+              top:         683.57,
+              left:        180,
+              height:      10.28,
+              width:       101.47,
               type:        :string
 
-    field     name:        'Accept Assignment? ',
+    field     name:        :accepts_assignment,
               id:          '27',
-              top:         '',
-              left:        '',
-              height:      nil,
-              width:       nil,
-              type:        :string
+              top:         684.51,
+              left:        nil,
+              height:      10.36,
+              width:       10.36,
+              type:        :boolean,
+              options:     {yes:288.5,no:324.58}
 
-    field     name:        'Total Charge ',
+    field     name:        :amount_paid,
               id:          '28',
-              top:         '',
-              left:        '',
-              height:      nil,
+              top:         684.89,
+              left:        459.96,
+              height:      9.98,
               width:       nil,
-              type:        :string
+              type:        :money,
+              options:     {dollars:[459.96,42.99],cents:[506.66,12.8]}
 
-    field     name:        'Amount Paid',
+    field     name:        :total_charge,
               id:          '29',
-              top:         '',
+              top:         684.89,
               left:        '',
-              height:      nil,
-              width:       nil,
-              type:        :string
+              height:      9.98,
+              width:       52.08,
+              type:        :money,
+              options:     {dollars:[379.99,51.82],cents:[435.52,16.25]}
 
-    field     name:        'Balance Due ',
+    field     name:        :balance_due,
               id:          '30',
-              top:         '',
+              top:         684.89,
               left:        '',
-              height:      nil,
-              width:       nil,
-              type:        :string
+              height:      9.98,
+              width:       41.71,
+              type:        :money,
+              options:     {dollars:[525.85,41.71],cents:[571.15,18.04]}
 
-    field     name:        'Signature of Physician or Supplier Including Degrees or Credentials',
+    field     name:        :signature_of_physician_or_supplier_of_degrees,
               id:          '31',
-              top:         '',
-              left:        0.8.cm,
-              height:      nil,
-              width:       nil,
+              top:         723.13,
+              left:        23.93,
+              height:      10.28,
+              width:       106.42,
               type:        :string
 
-    field     name:        'Service Facility Location Information',
+    field     name:        :date_of_signature_of_physician_or_supplier_of_degrees,
+              id:          '31',
+              top:         738.33,
+              left:        93.12,
+              height:      10.28,
+              width:       82.4,
+              type:        :string
+
+    field     name:        :service_facility_name,
               id:          '32',
-              top:         '',
-              left:        '',
-              height:      nil,
-              width:       nil,
+              top:         703.95,
+              left:        180.83,
+              height:      9.79,
+              width:       189.05,
               type:        :string
 
-    field     name:        'NPI #',
-              id:          '33a ',
-              top:         '',
-              left:        '',
-              height:      nil,
-              width:       nil,
+    field     name:        :service_facility_address,
+              id:          '32',
+              top:         717.43,
+              left:        180.83,
+              height:      9.79,
+              width:       189.05,
               type:        :string
 
-    field     name:        'Other ID # ',
-              id:          '33b ',
-              top:         '',
-              left:        '',
-              height:      nil,
-              width:       nil,
+    field     name:        :service_facility_city,
+              id:          '32',
+              top:         730.44,
+              left:        180.83,
+              height:      9.79,
+              width:       189.05,
               type:        :string
 
-    field     name:        'Billing Provider Info & Ph #',
-              id:          '33',
-              top:         '',
-              left:        '',
-              height:      nil,
-              width:       nil,
+    field     name:        :service_facility_state,
+              id:          '32',
+              top:         730.44,
+              left:        299.06,
+              height:      9.79,
+              width:       19,
               type:        :string
+
+    field     name:        :service_facility_zip,
+              id:          '32',
+              top:         730.44,
+              left:        316.91,
+              height:      9.79,
+              width:       54.12,
+              type:        :string
+
+    field     name:        :billing_provider_name,
+              id:          '32',
+              top:         708.95,
+              left:        375.44,
+              height:      9.79,
+              width:       189.05,
+              type:        :string
+
+    field     name:        :billing_provider_address,
+              id:          '32',
+              top:         720.43,
+              left:        375.44,
+              height:      9.79,
+              width:       189.05,
+              type:        :string
+
+    field     name:        :billing_provider_city,
+              id:          '32',
+              top:         732.44,
+              left:        375.44,
+              height:      9.79,
+              width:       189.05,
+              type:        :string
+
+    field     name:        :billing_provider_state,
+              id:          '32',
+              top:         732.44,
+              left:        552.2,
+              height:      9.79,
+              width:       19,
+              type:        :string
+
+    field     name:        :billing_provider_zip,
+              id:          '32',
+              top:         732.44,
+              left:        511.52,
+              height:      9.79,
+              width:       54.12,
+              type:        :string
+
+    field     name:        :billing_provider_phone,
+              id:          '32',
+              top:         698.58,
+              left:        nil,
+              height:      9.34,
+              width:       54.12,
+              type:        :phone,
+              options:     {area_code: 490.15, number: 517.02}
+
+#    field     name:        'NPI #',
+#              id:          '33a ',
+#              top:         '',
+#              left:        '',
+#              height:      nil,
+#              width:       nil,
+#              type:        :string
+#
+#    field     name:        'Other ID # ',
+#              id:          '33b ',
+#              top:         '',
+#              left:        '',
+#              height:      nil,
+#              width:       nil,
+#              type:        :string
+#
+#    field     name:        'Billing Provider Info & Ph #',
+#              id:          '33',
+#              top:         '',
+#              left:        '',
+#              height:      nil,
+#              width:       nil,
+#              type:        :string
 
   end
 end

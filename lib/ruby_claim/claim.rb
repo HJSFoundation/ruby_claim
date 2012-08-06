@@ -5,6 +5,9 @@ module RubyClaim
       @claim_fields    = RubyClaim::Definition::ClaimFields.new
       @services        = []
       @hide_background = !!options[:hide_background]
+      @diagnosis_codes = []
+
+      Struct.new "DiagnosisCode", :id, :value
     end
 
     def build_service
@@ -12,6 +15,10 @@ module RubyClaim
 
       yield @services.last if block_given?
       @services.last
+    end
+
+    def diagnosis_codes(id, value)
+      @diagnosis_codes << Struct::DiagnosisCode.new(id,value)
     end
 
     def draw(filename)
@@ -35,6 +42,15 @@ module RubyClaim
           end
         end
 
+        @diagnosis_codes.each do |dc|
+          field = @claim_fields.get_field(:diagnosis_or_nature_of_illness_or_injury)
+          val1 = dc.value.split(".").first
+          val2 = val1.length > 3 ?  dc.value.split(".").last.rjust(3) : dc.value.split(".").last # pad 1 char left on value 2 if val1 diag_code is 4 digits
+
+          pdf.draw_text val1, :at => [ field.options[dc.id][0][:left], (792.0 - field.options[dc.id][0][:top] - field.height) ]
+          pdf.draw_text val2, :at => [ field.options[dc.id][1][:left], (792.0 - field.options[dc.id][1][:top] - field.height) ]
+        end
+
         @services.each do |service_fields|
           service_fields.values.each do |field_name, value|
             field = service_fields.get_field(field_name)
@@ -48,7 +64,7 @@ module RubyClaim
         end
       end
 
-      # `open #{filename}`
+      `open #{filename}`
     end
 
     def mark_field(value,pdf,field)
@@ -63,6 +79,8 @@ module RubyClaim
         mark_date(value,pdf,field)
       when :phone
         mark_phone(value,pdf,field)
+      when :money
+        mark_money(value,pdf,field)
       end
     end
 
@@ -92,10 +110,19 @@ module RubyClaim
     def mark_phone(value,pdf,field)
       area_code, number = value[0,3], value[3,7]
 
-      field.options.each do |section, (left, width)|
+      field.options.each do |section, (left,width)|
         val = section == :area_code ? area_code : number[0,3] + '-' + number[3,4]
         pdf.draw_text val, :at => [left, field.bottom]
       end
+    end
+
+    def mark_money(value,pdf,field)
+      padding = (field.options[:dollars].last / 5)         # 6 pt per char
+      dollars = value.to_s.split(".").first.rjust(padding)
+      cents   = value.round(2).to_s.split(".").last
+
+      pdf.draw_text dollars, :at => [field.options[:dollars].first, field.bottom]
+      pdf.draw_text cents,   :at => [field.options[:cents].first, field.bottom]
     end
 
     def method_missing(method_name, *args)
