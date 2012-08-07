@@ -51,14 +51,17 @@ module RubyClaim
           pdf.draw_text val2, :at => [ field.options[dc.id][1][:left], (792.0 - field.options[dc.id][1][:top] - field.height) ]
         end
 
-        @services.each do |service_fields|
+        @services.each_with_index do |service_fields,i|
+          next if service_fields.values.nil?
+
           service_fields.values.each do |field_name, value|
-            field = service_fields.get_field(field_name)
+            field     = service_fields.get_field(field_name)
+            field.top = service_fields.row_tops[i]
 
             if field.bounding?
               mark_field(value,pdf,field)
             else
-              pdf.draw_text value, :at => [field.left, field.bottom]
+              pdf.draw_text value, :at => [field.left, bottom]
             end
           end
         end
@@ -102,9 +105,11 @@ module RubyClaim
 
     def mark_date(value,pdf,field)
       date = Date.parse(value)
-      field.options.each do |mdy, left_coordinate|
-        pdf.draw_text date.send(mdy).to_s.rjust(2,"0")[-2,2], :at => [left_coordinate, field.bottom]
-      end
+      year = field.options[:full_century] == true ? "%Y" : "%y"
+
+      pdf.draw_text date.strftime("%m"), :at => [field.options[:month] ,field.bottom]
+      pdf.draw_text date.strftime("%d"), :at => [field.options[:day], field.bottom]
+      pdf.draw_text date.strftime(year), :at => [field.options[:year], field.bottom]
     end
 
     def mark_phone(value,pdf,field)
@@ -119,7 +124,7 @@ module RubyClaim
     def mark_money(value,pdf,field)
       padding = (field.options[:dollars].last / 5)         # 6 pt per char
       dollars = value.to_s.split(".").first.rjust(padding)
-      cents   = value.round(2).to_s.split(".").last
+      cents   = value.round(2).to_s.split(".").last.rjust(2,"0")
 
       pdf.draw_text dollars, :at => [field.options[:dollars].first, field.bottom]
       pdf.draw_text cents,   :at => [field.options[:cents].first, field.bottom]
@@ -127,6 +132,12 @@ module RubyClaim
 
     def method_missing(method_name, *args)
       @claim_fields.send(method_name, *args)
+    end
+
+
+    # Testing service placement
+    def time_rand from = 0.0, to = Time.now
+      Time.at(from + rand * (to.to_f - from.to_f)).strftime("%Y-%m-%d")
     end
   end
 end

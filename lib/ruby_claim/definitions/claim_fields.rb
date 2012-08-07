@@ -1,5 +1,46 @@
 module RubyClaim::Definition
   class ClaimFields < RubyClaim::Definition::Base
+
+    field     name:        :carrier_name,
+              id:          '32',
+              top:         40,
+              left:        321.03,
+              height:      9.79,
+              width:       189.05,
+              type:        :string
+
+    field     name:        :carrier_address,
+              id:          '32',
+              top:         54.48,
+              left:        321.03,
+              height:      9.79,
+              width:       189.05,
+              type:        :string
+
+    field     name:        :carrier_city,
+              id:          '32',
+              top:         68.49,
+              left:        321.03,
+              height:      9.79,
+              width:       189.05,
+              type:        :string
+
+    field     name:        :carrier_state,
+              id:          '32',
+              top:         68.49,
+              left:        367.79,
+              height:      9.79,
+              width:       19,
+              type:        :string
+
+    field     name:        :carrier_zip,
+              id:          '32',
+              top:         68.49,
+              left:        390.52,
+              height:      9.79,
+              width:       54.12,
+              type:        :string
+
     field     name:        :insurance_type,
               id:          '1',
               top:         109.36,
@@ -12,15 +53,8 @@ module RubyClaim::Definition
                              :champva => 185.52,
                              :tricare_champus => 120.32,
                              :medicaid => 69.21,
-                             :medicare => 20.87 }
-
-    field     name:        :carrier_other,
-              id:          '1',
-              top:         109.36,
-              left:        336.34,
-              height:      10,
-              width:       10,
-              type:        :checkbox
+                             :medicare => 20.87,
+                             :carrier_other => 336.34 }
 
     field     name:        :insured_id_number,
               id:          '1a ',
@@ -45,7 +79,7 @@ module RubyClaim::Definition
               height:      8.28,
               width:       11.04,
               type:        :date,
-              options:     {year: 289.22, month: 241, day: 262.61}
+              options:     {year: 279.67, month: 241, day: 262.61, full_century: true}
 
     field     name:        :patient_sex,
               id:          '3',
@@ -242,6 +276,14 @@ module RubyClaim::Definition
               type:        :boolean,
               options:     {:yes => 265.85, :no => 308.72}
 
+    field     name:        :patient_condition_place_state,
+              id:          '1a ',
+              top:         275.31,
+              left:        338.91,
+              height:      10.3,
+              width:       17.15,
+              type:        :string
+
     field     name:        :insured_employer_or_school_name,
               id:          '11b ',
               top:         275.78,
@@ -360,6 +402,23 @@ module RubyClaim::Definition
               height:      10.28,
               width:       182.72,
               type:        :string
+
+    field     name:        :other_source_type,
+              id:          '17a ',
+              top:         408.96,
+              left:        231.31,
+              height:      9.79,
+              width:       11.52,
+              type:        :string
+
+    field     name:        :other_source_identifier,
+              id:          '17a ',
+              top:         409.07,
+              left:        247.3,
+              height:      9.79,
+              width:       121.49,
+              type:        :string
+
 
     field     name:        :referring_provider_or_source_npi,
               id:          '17',
@@ -558,6 +617,22 @@ module RubyClaim::Definition
               width:       54.12,
               type:        :string
 
+    field     name:        :service_facility_npi,
+              id:          '32',
+              top:         745.28,
+              left:        185.63,
+              height:      9.34,
+              width:       73.83,
+              type:        :string
+
+    field     name:        :service_facility_legacy_identifier,
+              id:          '32',
+              top:         745.28,
+              left:        267.39,
+              height:      9.34,
+              width:       102.87,
+              type:        :string
+
     field     name:        :billing_provider_name,
               id:          '32',
               top:         708.95,
@@ -606,6 +681,22 @@ module RubyClaim::Definition
               width:       54.12,
               type:        :phone,
               options:     {area_code: 490.15, number: 517.02}
+
+    field     name:        :billing_provider_npi,
+              id:          '32',
+              top:         745.28,
+              left:        381.14,
+              height:      9.34,
+              width:       73.83,
+              type:        :string
+
+    field     name:        :billing_provider_legacy_identifier,
+              id:          '32',
+              top:         745.28,
+              left:        462.52,
+              height:      9.34,
+              width:       102.87,
+              type:        :string
 
 #    field     name:        'NPI #',
 #              id:          '33a ',
