@@ -150,6 +150,7 @@ if __FILE__ == $0
   end
 
   c.to_pdf('sample.pdf')
+  c.to_json('sample.json')
+
   `open sample.pdf`
-  puts c.to_json
 end
