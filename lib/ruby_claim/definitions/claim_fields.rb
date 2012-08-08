@@ -9,7 +9,7 @@ module RubyClaim::Definition
               width:       189.05,
               type:        :string
 
-    field     name:        :carrier_wrapper_1,
+    field     name:        :carrier_address_1,
               id:          nil,
               top:         45,
               left:        328.59,
@@ -17,7 +17,7 @@ module RubyClaim::Definition
               width:       189.05,
               type:        :string
 
-    field     name:        :carrier_wrapper_2,
+    field     name:        :carrier_address_2,
               id:          nil,
               top:         56,
               left:        328.59,
@@ -25,7 +25,7 @@ module RubyClaim::Definition
               width:       189.05,
               type:        :string
 
-    field     name:        :carrier_wrapper_3,
+    field     name:        :carrier_city_state_zip,
               id:          nil,
               top:         68,
               left:        328.59,
@@ -49,7 +49,7 @@ module RubyClaim::Definition
                              :carrier_other => 336.34 }
 
     field     name:        :insured_id_number,
-              id:          '1a ',
+              id:          '1a',
               top:         108.56,
               left:        377.48,
               height:      10.3,
@@ -98,15 +98,6 @@ module RubyClaim::Definition
               width:       190.72,
               type:        :string
 
-    field     name:        :patient_relationship_to_insured,
-              id:          '6',
-              top:         156.38,
-              left:        nil,
-              height:      10,
-              width:       10,
-              type:        :checkbox,
-              options:     {:self => 250.75, :spouse => 286.84, :child => 315.5, :other => 351.1}
-
     field     name:        :patient_city,
               id:          '5',
               top:         177.69,
@@ -139,6 +130,15 @@ module RubyClaim::Definition
               width:       nil,
               type:        :phone,
               options:     {area_code: [122.67, 21.88], number: [152, 67.56]}
+
+    field     name:        :patient_relationship_to_insured,
+              id:          '6',
+              top:         156.38,
+              left:        nil,
+              height:      10,
+              width:       10,
+              type:        :checkbox,
+              options:     {:self => 250.75, :spouse => 286.84, :child => 315.5, :other => 351.1}
 
     field     name:        :insured_address,
               id:          '7',
@@ -207,12 +207,12 @@ module RubyClaim::Definition
               width:       198.36,
               type:        :string
 
-    field     name:        :employer_name_or_school_name,
-              id:          '9c ',
-              top:         299.2,
+    field     name:        :other_insured_policy_or_group_number,
+              id:          '9a',
+              top:         252.85,
               left:        23.93,
               height:      10.28,
-              width:       200,
+              width:       200.53,
               type:        :string
 
     field     name:        :other_insured_date_of_birth,
@@ -233,12 +233,12 @@ module RubyClaim::Definition
               type:        :checkbox,
               options:     {:male => 143.48, :female => 185.47}
 
-    field     name:        :other_insured_policy_or_group_number,
-              id:          '9a ',
-              top:         252.85,
+    field     name:        :employer_name_or_school_name,
+              id:          '9c ',
+              top:         299.2,
               left:        23.93,
               height:      10.28,
-              width:       200.53,
+              width:       200,
               type:        :string
 
     field     name:        :other_insured_plan_or_program_name,
@@ -248,23 +248,6 @@ module RubyClaim::Definition
               height:      10.28,
               width:       200.53,
               type:        :string
-
-    field     name:        :patient_condition_reserved_for_local_use,
-              id:          '10d',
-              top:         323.76,
-              left:        231.18,
-              height:      10.28,
-              width:       200.53,
-              type:        :string
-
-    field     name:        :condition_related_to_other_accident,
-              id:          '10c',
-              top:         300.14,
-              left:        '',
-              height:      9.85,
-              width:       9.85,
-              type:        :boolean,
-              options:     {:yes => 265.85, :no => 308.72}
 
     field     name:        :condition_related_to_employment,
               id:          '10a',
@@ -284,30 +267,30 @@ module RubyClaim::Definition
               type:        :boolean,
               options:     {:yes => 265.85, :no => 308.72}
 
-    field     name:        :patient_condition_place_state,
-              id:          '1a ',
+    field     name:        :condition_related_to_other_accident,
+              id:          '10c',
+              top:         300.14,
+              left:        '',
+              height:      9.85,
+              width:       9.85,
+              type:        :boolean,
+              options:     {:yes => 265.85, :no => 308.72}
+
+    field     name:        :condition_place,
+              id:          '10',
               top:         275.31,
               left:        338.91,
               height:      10.3,
               width:       17.15,
               type:        :string
 
-    field     name:        :insured_employer_or_school_name,
-              id:          '11b ',
-              top:         275.78,
-              left:        13.25.cm,
+    field     name:        :condition_reserved_for_local_use,
+              id:          '10d',
+              top:         323.76,
+              left:        231.18,
               height:      10.28,
-              width:       211.25,
+              width:       200.53,
               type:        :string
-
-    field     name:        :is_there_another_health_benefit_plan,
-              id:          '11d ',
-              top:         324.06,
-              left:        '',
-              height:      9.98,
-              width:       9.98,
-              type:        :boolean,
-              options:     {:yes => 387.66, :no => 423.75}
 
     field     name:        :insured_policy_or_group_number,
               id:          '11',
@@ -318,7 +301,7 @@ module RubyClaim::Definition
               type:        :string
 
     field     name:        :insured_date_of_birth,
-              id:          '11a ',
+              id:          '11a',
               top:         255.1,
               left:        '',
               height:      8.28,
@@ -327,7 +310,7 @@ module RubyClaim::Definition
               options:     {:year => 441.28, :month => 400.2, :day => 420.55}
 
     field     name:        :insured_sex,
-              id:          '11a ',
+              id:          '11a',
               top:         252.28,
               left:        '',
               height:      10.24,
@@ -335,13 +318,30 @@ module RubyClaim::Definition
               type:        :checkbox,
               options:     {:male => 503.08, :female => 553.87}
 
-    field     name:        :insurance_plan_or_program_name,
+    field     name:        :insured_employer_or_school_name,
+              id:          '11b',
+              top:         275.78,
+              left:        13.25.cm,
+              height:      10.28,
+              width:       211.25,
+              type:        :string
+
+    field     name:        :insured_insurance_plan_or_program_name,
               id:          '11c',
               top:         300.35,
               left:        377.48,
               height:      10.28,
               width:       211.38,
               type:        :string
+
+    field     name:        :insured_is_there_another_health_benefit_plan,
+              id:          '11d',
+              top:         324.06,
+              left:        '',
+              height:      9.98,
+              width:       9.98,
+              type:        :boolean,
+              options:     {:yes => 387.66, :no => 423.75}
 
     field     name:        :patient_or_authorized_signature,
               id:          '12',
@@ -367,7 +367,7 @@ module RubyClaim::Definition
               width:       169.36,
               type:        :string
 
-    field     name:        :date_of_current_illness_injury_pregnancy,
+    field     name:        :incident_date,
               id:          '14',
               top:         399.04,
               left:        '',
@@ -376,7 +376,7 @@ module RubyClaim::Definition
               type:        :date,
               options:     {:year => 72.26, :month => 32.85, :day => 52.56}
 
-    field     name:        :date_if_patient_has_had_similar_illness,
+    field     name:        :incident_onset_date,
               id:          '15',
               top:         398.79,
               left:        '',
@@ -385,7 +385,7 @@ module RubyClaim::Definition
               type:        :date,
               options:     {:year => 326.12, :month => 284.66, :day => 305.65}
 
-    field     name:        :dates_unable_to_work_occupation_from,
+    field     name:        :dates_unable_to_work_from,
               id:          '16',
               top:         398.79,
               left:        '',
@@ -394,7 +394,7 @@ module RubyClaim::Definition
               type:        :date,
               options:     {:year => 449.98, :month => 404.94, :day => 426.69}
 
-    field     name:        :dates_unable_to_work_occupation_to,
+    field     name:        :dates_unable_to_work_to,
               id:          '16',
               top:         398.53,
               left:        '',
@@ -403,40 +403,39 @@ module RubyClaim::Definition
               type:        :date,
               options:     {:year => 547.48, :month => 506.28, :day => 526.24}
 
-    field     name:        :referring_provider_or_other_source_name,
-              id:          '17a ',
+    field     name:        :referring_provider_name,
+              id:          '17',
               top:         419.73,
               left:        23.93,
               height:      10.28,
               width:       182.72,
               type:        :string
 
-    field     name:        :other_source_type,
-              id:          '17a ',
+    field     name:        :referring_provder_other_identifier,
+              id:          '17a',
               top:         408.96,
               left:        231.31,
               height:      9.79,
               width:       11.52,
               type:        :string
 
-    field     name:        :other_source_identifier,
-              id:          '17a ',
+    field     name:        :referring_provider_other_number,
+              id:          '17a',
               top:         409.07,
               left:        247.3,
               height:      9.79,
               width:       121.49,
               type:        :string
 
-
-    field     name:        :referring_provider_or_source_npi,
-              id:          '17',
+    field     name:        :referring_provider_npi,
+              id:          '17b',
               top:         422.59,
               left:        247.3,
               height:      7.68,
               width:       123.09,
               type:        :string
 
-    field     name:        :hospitalization_related_to_current_service_from,
+    field     name:        :admit_date,
               id:          '18',
               top:         424.35,
               left:        404.43,
@@ -445,7 +444,7 @@ module RubyClaim::Definition
               type:        :date,
               options:     {:year => 449.72, :month => 404.43, :day => 426.94}
 
-    field     name:        :hospitalization_related_to_current_service_to,
+    field     name:        :discharge_date,
               id:          '18',
               top:         424.35,
               left:        506.53,
@@ -480,7 +479,7 @@ module RubyClaim::Definition
               type:        :money,
               options:     {dollars: [457.14,65], cents: [527,61.16]}
 
-    field     name:        :diagnosis_or_nature_of_illness_or_injury,
+    field     name:        :diagnosis,
               id:          '21',
               top:         '',
               left:        '',
@@ -542,23 +541,23 @@ module RubyClaim::Definition
               type:        :boolean,
               options:     {yes:288.5,no:324.58}
 
-    field     name:        :amount_paid,
-              id:          '28',
-              top:         684.89,
-              left:        459.96,
-              height:      9.98,
-              width:       nil,
-              type:        :money,
-              options:     {dollars:[459.96,42.99],cents:[506.66,12.8]}
-
     field     name:        :total_charge,
-              id:          '29',
+              id:          '28',
               top:         684.89,
               left:        '',
               height:      9.98,
               width:       52.08,
               type:        :money,
               options:     {dollars:[379.99,51.82],cents:[435.52,16.25]}
+
+    field     name:        :amount_paid,
+              id:          '29',
+              top:         684.89,
+              left:        459.96,
+              height:      9.98,
+              width:       nil,
+              type:        :money,
+              options:     {dollars:[459.96,42.99],cents:[506.66,12.8]}
 
     field     name:        :balance_due,
               id:          '30',
@@ -569,7 +568,7 @@ module RubyClaim::Definition
               type:        :money,
               options:     {dollars:[525.85,41.71],cents:[571.15,18.04]}
 
-    field     name:        :signature_of_physician_or_supplier_of_degrees,
+    field     name:        :provider_signature,
               id:          '31',
               top:         723.13,
               left:        23.93,
@@ -577,7 +576,7 @@ module RubyClaim::Definition
               width:       106.42,
               type:        :string
 
-    field     name:        :date_of_signature_of_physician_or_supplier_of_degrees,
+    field     name:        :provider_signature_date,
               id:          '31',
               top:         738.33,
               left:        93.12,
@@ -626,15 +625,15 @@ module RubyClaim::Definition
               type:        :string
 
     field     name:        :service_facility_npi,
-              id:          '32',
+              id:          '32a',
               top:         745.28,
               left:        185.63,
               height:      9.34,
               width:       73.83,
               type:        :string
 
-    field     name:        :service_facility_legacy_identifier,
-              id:          '32',
+    field     name:        :service_facility_legacy_number,
+              id:          '32b',
               top:         745.28,
               left:        267.39,
               height:      9.34,
@@ -642,7 +641,7 @@ module RubyClaim::Definition
               type:        :string
 
     field     name:        :billing_provider_name,
-              id:          '32',
+              id:          '33',
               top:         708.95,
               left:        375.44,
               height:      9.79,
@@ -650,7 +649,7 @@ module RubyClaim::Definition
               type:        :string
 
     field     name:        :billing_provider_address,
-              id:          '32',
+              id:          '33',
               top:         720.43,
               left:        375.44,
               height:      9.79,
@@ -658,7 +657,7 @@ module RubyClaim::Definition
               type:        :string
 
     field     name:        :billing_provider_city,
-              id:          '32',
+              id:          '33',
               top:         732.44,
               left:        375.44,
               height:      9.79,
@@ -666,7 +665,7 @@ module RubyClaim::Definition
               type:        :string
 
     field     name:        :billing_provider_state,
-              id:          '32',
+              id:          '33',
               top:         732.44,
               left:        552.2,
               height:      9.79,
@@ -674,7 +673,7 @@ module RubyClaim::Definition
               type:        :string
 
     field     name:        :billing_provider_zip,
-              id:          '32',
+              id:          '33',
               top:         732.44,
               left:        511.52,
               height:      9.79,
@@ -682,7 +681,7 @@ module RubyClaim::Definition
               type:        :string
 
     field     name:        :billing_provider_phone,
-              id:          '32',
+              id:          '33',
               top:         698.58,
               left:        nil,
               height:      9.34,
@@ -691,44 +690,20 @@ module RubyClaim::Definition
               options:     {area_code: 490.15, number: 517.02}
 
     field     name:        :billing_provider_npi,
-              id:          '32',
+              id:          '33a',
               top:         745.28,
               left:        381.14,
               height:      9.34,
               width:       73.83,
               type:        :string
 
-    field     name:        :billing_provider_legacy_identifier,
-              id:          '32',
+    field     name:        :billing_provider_legacy_number,
+              id:          '33b',
               top:         745.28,
               left:        462.52,
               height:      9.34,
               width:       102.87,
               type:        :string
-
-#    field     name:        'NPI #',
-#              id:          '33a ',
-#              top:         '',
-#              left:        '',
-#              height:      nil,
-#              width:       nil,
-#              type:        :string
-#
-#    field     name:        'Other ID # ',
-#              id:          '33b ',
-#              top:         '',
-#              left:        '',
-#              height:      nil,
-#              width:       nil,
-#              type:        :string
-#
-#    field     name:        'Billing Provider Info & Ph #',
-#              id:          '33',
-#              top:         '',
-#              left:        '',
-#              height:      nil,
-#              width:       nil,
-#              type:        :string
 
   end
 end

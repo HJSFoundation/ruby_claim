@@ -43,7 +43,7 @@ module RubyClaim
         end
 
         @diagnosis_codes.each do |dc|
-          field = @claim_fields.get_field(:diagnosis_or_nature_of_illness_or_injury)
+          field = @claim_fields.get_field(:diagnosis)
           val1 = dc.value.split(".").first
           val2 = val1.length > 3 ?  dc.value.split(".").last.rjust(3) : dc.value.split(".").last # pad 1 char left on value 2 if val1 diag_code is 4 digits
 

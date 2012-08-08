@@ -2,7 +2,7 @@ module RubyClaim::Definition
   class ServiceFields < RubyClaim::Definition::Base
 
     field     name:        :date_of_service_from,
-              id:          '24A ',
+              id:          '24A',
               top:         108.56,
               left:        '',
               height:      11.52,
@@ -11,7 +11,7 @@ module RubyClaim::Definition
               options:     {year: 64.18, month: 23.72, day: 44.68}
 
     field     name:        :date_of_service_to,
-              id:          '24A ',
+              id:          '24A',
               top:         108.56,
               left:        '',
               height:      11.52,
@@ -19,31 +19,23 @@ module RubyClaim::Definition
               type:        :date,
               options:     {year: 129.81, month: 86.67, day: 109.13}
 
-    field     name:        'Rendering Provider ID # ',
-              id:          '24J ',
-              top:         108.56,
-              left:        '',
-              height:      nil,
-              width:       nil,
-              type:        :boolean
-
     field     name:        :place_of_service,
-              id:          '24B ',
+              id:          '24B',
               top:         108.56,
               left:        150.97,
               height:      11.52,
               width:       18.15,
               type:        :string
 
-    field     name:        :emg,
-              id:          '24C ',
+    field     name:        :emergency,
+              id:          '24C',
               top:         108.56,
               left:        173.21,
               height:      11.52,
               width:       13.56,
               type:        :string
 
-    field     name:        :cpt_hcpcs,
+    field     name:        :procedure_code,
               id:          '24D',
               top:         108.56,
               left:        196.25,
@@ -101,7 +93,7 @@ module RubyClaim::Definition
               options:     {dollars:[375.25,41.46],cents:[420.82,16.31]}
 
     field     name:        :days_or_units,
-              id:          '24E',
+              id:          '24G',
               top:         108.56,
               left:        444.15,
               height:      11.52,
@@ -109,22 +101,14 @@ module RubyClaim::Definition
               type:        :string
 
     field     name:        :epsdt_family_plan,
-              id:          '24E',
+              id:          '24H',
               top:         108.56,
               left:        466.8,
               height:      11.52,
               width:       11.52,
               type:        :string
 
-    field     name:        :npi_number,
-              id:          '24J',
-              top:         108.56,
-              left:        502.88,
-              height:      11.52,
-              width:       85.79,
-              type:        :string
-
-    field     name:        :id_qualifier,
+    field     name:        :legacy_number_qualifier,
               id:          '24J',
               top:         108.56,
               left:        481.77,
@@ -132,11 +116,19 @@ module RubyClaim::Definition
               width:       15.74,
               type:        :string
 
-    field     name:        :provider_id_number,
+    field     name:        :legacy_number,
               id:          '24J',
               top:         108.56,
               left:        502.88,
               height:      0,
+              width:       85.79,
+              type:        :string
+
+    field     name:        :npi_number,
+              id:          '24J',
+              top:         108.56,
+              left:        502.88,
+              height:      11.52,
               width:       85.79,
               type:        :string
 
