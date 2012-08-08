@@ -10,6 +10,8 @@ require_relative "ruby_claim/field"
 require_relative "ruby_claim/definitions/base"
 require_relative "ruby_claim/definitions/claim_fields"
 require_relative "ruby_claim/definitions/service_fields"
+require_relative "ruby_claim/outputters/pdf"
+require_relative "ruby_claim/outputters/json"
 require_relative "ruby_claim/claim"
 
 
@@ -83,10 +85,10 @@ module RubyClaim
     c.outside_lab_charges                          = 999999.01                  #20
 
     # 21
-    c.diagnosis_codes(1, 'V722.83')
-    c.diagnosis_codes(2, '720.2')
-    c.diagnosis_codes(3, '100.2')
-    c.diagnosis_codes(4, '100.2')
+    c.set_diagnosis_code(1, 'V722.83')
+    c.set_diagnosis_code(2, '720.2')
+    c.set_diagnosis_code(3, '100.2')
+    c.set_diagnosis_code(4, '100.2')
 
     c.medicaid_resubmission_code                   = 'MRC-1'
     c.medicaid_resubmission_orginal_ref_number     = 'probably unused'
@@ -142,5 +144,8 @@ module RubyClaim
     end
 
   # Draw the claim
-  c.draw(File.join(File.dirname(__FILE__), "ruby_claim/ext/sample.pdf"))
+  # sample_location = File.join(File.dirname(__FILE__), "ruby_claim/ext/sample.pdf")
+  # c.draw(sample_location)
+
+  puts c.to_json
 end
