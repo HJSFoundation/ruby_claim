@@ -1,44 +1,36 @@
 module RubyClaim::Definition
   class ClaimFields < RubyClaim::Definition::Base
 
-    field     name:        :carrier_name,
-              id:          '32',
-              top:         40,
-              left:        321.03,
+    field     name:        :carrier_name_line,
+              id:          nil,
+              top:         33,
+              left:        328.59,
               height:      9.79,
               width:       189.05,
               type:        :string
 
-    field     name:        :carrier_address,
-              id:          '32',
-              top:         54.48,
-              left:        321.03,
+    field     name:        :carrier_wrapper_1,
+              id:          nil,
+              top:         45,
+              left:        328.59,
               height:      9.79,
               width:       189.05,
               type:        :string
 
-    field     name:        :carrier_city,
-              id:          '32',
-              top:         68.49,
-              left:        321.03,
+    field     name:        :carrier_wrapper_2,
+              id:          nil,
+              top:         56,
+              left:        328.59,
               height:      9.79,
               width:       189.05,
               type:        :string
 
-    field     name:        :carrier_state,
-              id:          '32',
-              top:         68.49,
-              left:        367.79,
+    field     name:        :carrier_wrapper_3,
+              id:          nil,
+              top:         68,
+              left:        328.59,
               height:      9.79,
-              width:       19,
-              type:        :string
-
-    field     name:        :carrier_zip,
-              id:          '32',
-              top:         68.49,
-              left:        390.52,
-              height:      9.79,
-              width:       54.12,
+              width:       189.05,
               type:        :string
 
     field     name:        :insurance_type,
@@ -245,6 +237,22 @@ module RubyClaim::Definition
               id:          '9a ',
               top:         252.85,
               left:        23.93,
+              height:      10.28,
+              width:       200.53,
+              type:        :string
+
+    field     name:        :other_insured_plan_or_program_name,
+              id:          '9d',
+              top:         323.76,
+              left:        23.93,
+              height:      10.28,
+              width:       200.53,
+              type:        :string
+
+    field     name:        :patient_condition_reserved_for_local_use,
+              id:          '10d',
+              top:         323.76,
+              left:        231.18,
               height:      10.28,
               width:       200.53,
               type:        :string

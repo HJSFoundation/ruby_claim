@@ -15,12 +15,10 @@ require_relative "ruby_claim/claim"
 
 module RubyClaim
   c = RubyClaim::Claim.new(:hide_background => false)
-
-      c.carrier_name                                 = "Big Company Carrier For Hire - OR"
-      c.carrier_address                              = "11th Example Rd St Ln #1235"
-      c.carrier_city                                 = "Ocala,"
-      c.carrier_state                                = "FL"
-      c.carrier_zip                                  = "34476"
+      c.carrier_name_line                                     = "BIG COMPANY CARRIER FOR HIRE - OR"
+      c.carrier_wrapper_1                                     = "11th EXAMPLE RD ST LN #1235"
+      c.carrier_wrapper_2                                     = "PLACEMENT"
+      c.carrier_wrapper_3                                     = "OCALA, FL 34476"
 
       c.insurance_type                                        = :medicare
       c.insured_id_number                                     = 'insured_id_number'
@@ -42,6 +40,7 @@ module RubyClaim
       c.other_insured_date_of_birth                           = '1955-10-31'
       c.other_insured_policy_or_group_number                  = '123451'
       c.employer_name_or_school_name                          = 'University Of Florida'
+      c.other_insured_plan_or_program_name                    = 'PLAN OR PROGRAM NAME'
 
       c.patient_name                                          = "Jane Jetson"
       c.patient_address                                       = 'patient_address'
@@ -63,6 +62,7 @@ module RubyClaim
       c.condition_related_to_auto_accident                    = false
       c.patient_condition_place_state                         = "FL"
 
+      c.patient_condition_reserved_for_local_use              = "RESERVED FOR LOCAL"
       # Section 14 and lower
 
       c.date_of_current_illness_injury_pregnancy              = "2012-02-03"
