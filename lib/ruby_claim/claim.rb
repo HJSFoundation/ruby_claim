@@ -67,7 +67,7 @@ module RubyClaim
         end
       end
 
-      `open #{filename}`
+     # `open #{filename}`
     end
 
     def mark_field(value,pdf,field)
