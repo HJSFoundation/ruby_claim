@@ -1,0 +1,154 @@
+The claim file produced by ProMedical is formatted as a JSON array.
+
+Each entry in the main array is a hash (dictionary) representing each claim.
+The individual claim hash contains all of the information relevant to the
+entire claim. The claim hash also contains an array of services with each
+record being another hash of the individual service level data elements (up to
+but not exceeding 6). Please note that all fields listed in this specification
+may not appear in every claim.
+
+Field type may be only one of the following types:
+
+    string:     Will be a string containing the value specified.  The specified
+                value should be entered directly into the corresponding field
+                on the claim form.
+
+    boolean:    Will be either 'true' or 'false'.  A value of 'true'
+                corresponds to the checkbox labled 'Yes' on the claim form, and
+                a value of 'false' corresponds to the checkbox labled 'No'.
+
+    money:      Will be represented as a float.  The dollar sign is not
+                included.  Any negative numbers will be preceded by a minus
+                sign ('-').
+
+    checkbox:   Will be sent as one of the values listed in the 'Field Options'
+                listed for the field. Each option listed in the 'Field Options'
+                corresponds to the one of the checkboxes on the claim form.
+                Only a single string value will be sent and should be used to
+                mark the corresponding checkbox.
+
+    date:       Will be a valid date formatted with four digit year then a dash
+                then two digit month then a dash then a two digit day.  ( ie
+                '2010-01-01' )
+
+    phone:      Will be 10 digits with no separation.
+
+Claim Fields:
+
++------------------------------------------+-----------------+-----------------+---------------------------------------------------+
+| Field Name                               | 1500 Location   | Field Type      | Field Options                                     |
++------------------------------------------+-----------------+-----------------+---------------------------------------------------+
+| carrier_name                             |                 | string          |                                                   |
+| carrier_address_1                        |                 | string          |                                                   |
+| carrier_address_2                        |                 | string          |                                                   |
+| carrier_city                             |                 | string          |                                                   |
+| carrier_state                            |                 | string          |                                                   |
+| carrier_zip                              |                 | string          |                                                   |
+| insurance_type                           | 1               | checkbox        | black_lung, group_health_plan, champva,           |
+| insurance_type (field options cont)      |                 |                 | tricare_champus, medicaid, medicare, other        |
+| insured_id_number                        | 1a              | string          |                                                   |
+| patient_name                             | 2               | string          |                                                   |
+| patient_date_of_birth                    | 3               | date            |                                                   |
+| patient_sex                              | 3               | checkbox        | male, female                                      |
+| insured_name                             | 4               | string          |                                                   |
+| patient_address                          | 5               | string          |                                                   |
+| patient_city                             | 5               | string          |                                                   |
+| patient_state                            | 5               | string          |                                                   |
+| patient_zip                              | 5               | string          |                                                   |
+| patient_phone                            | 5               | phone           |                                                   |
+| patient_relationship_to_insured          | 6               | checkbox        | self, spouse, child, other                        |
+| insured_address                          | 7               | string          |                                                   |
+| insured_city                             | 7               | string          |                                                   |
+| insured_state                            | 7               | string          |                                                   |
+| insured_zip                              | 7               | string          |                                                   |
+| insured_phone                            | 7               | phone           |                                                   |
+| patient_marital_status                   | 8               | checkbox        | single, married, other                            |
+| patient_employment_status                | 8               | checkbox        | employed, full_time_student, part_time_student    |
+| other_insured_name                       | 9               | string          |                                                   |
+| other_insured_policy_or_group_number     | 9a              | string          |                                                   |
+| other_insured_date_of_birth              | 9b              | date            |                                                   |
+| other_insured_sex                        | 9b              | checkbox        | male, female                                      |
+| employer_name_or_school_name             | 9c              | string          |                                                   |
+| other_insured_plan_or_program_name       | 9d              | string          |                                                   |
+| condition_related_to_employment          | 10a             | boolean         |                                                   |
+| condition_related_to_auto_accident       | 10a             | boolean         |                                                   |
+| condition_related_to_other_accident      | 10c             | boolean         |                                                   |
+| condition_place                          | 10              | string          |                                                   |
+| condition_reserved_for_local_use         | 10d             | string          |                                                   |
+| insured_policy_or_group_number           | 11              | string          |                                                   |
+| insured_date_of_birth                    | 11a             | date            |                                                   |
+| insured_sex                              | 11a             | checkbox        | male, female                                      |
+| insured_employer_or_school_name          | 11b             | string          |                                                   |
+| insured_insurance_plan_or_program_name   | 11c             | string          |                                                   |
+| insured_other_health_benefit_plan_exists | 11d             | boolean         |                                                   |
+| patient_or_authorized_signature          | 12              | string          |                                                   |
+| patient_or_authorized_signature_date     | 12              | string          |                                                   |
+| insured_or_authorized_signature          | 13              | string          |                                                   |
+| incident_date                            | 14              | date            |                                                   |
+| incident_onset_date                      | 15              | date            |                                                   |
+| dates_unable_to_work_from                | 16              | date            |                                                   |
+| dates_unable_to_work_to                  | 16              | date            |                                                   |
+| referring_provider_name                  | 17              | string          |                                                   |
+| referring_provder_other_identifier       | 17a             | string          |                                                   |
+| referring_provider_other_number          | 17a             | string          |                                                   |
+| referring_provider_npi                   | 17b             | string          |                                                   |
+| admit_date                               | 18              | date            |                                                   |
+| discharge_date                           | 18              | date            |                                                   |
+| reserved_for_local_use                   | 19              | string          |                                                   |
+| outside_lab                              | 20              | boolean         |                                                   |
+| outside_lab_charges                      | 20              | money           |                                                   |
+| diagnosis_codes                          | 21              | array           | * See note below...                               |
+| medicaid_resubmission_code               | 22              | string          |                                                   |
+| medicaid_resubmission_orginal_ref_number | 22              | string          |                                                   |
+| prior_authorization_number               | 23              | string          |                                                   |
+| federal_tax_id                           | 25              | checkbox        | ssn, ein                                          |
+| patient_account_number                   | 26              | string          |                                                   |
+| accepts_assignment                       | 27              | boolean         |                                                   |
+| total_charge                             | 28              | money           |                                                   |
+| amount_paid                              | 29              | money           |                                                   |
+| balance_due                              | 30              | money           |                                                   |
+| provider_signature                       | 31              | string          |                                                   |
+| provider_signature_date                  | 31              | string          |                                                   |
+| service_facility_name                    | 32              | string          |                                                   |
+| service_facility_address                 | 32              | string          |                                                   |
+| service_facility_city                    | 32              | string          |                                                   |
+| service_facility_state                   | 32              | string          |                                                   |
+| service_facility_zip                     | 32              | string          |                                                   |
+| service_facility_npi                     | 32a             | string          |                                                   |
+| service_facility_legacy_number           | 32b             | string          |                                                   |
+| billing_provider_name                    | 33              | string          |                                                   |
+| billing_provider_address                 | 33              | string          |                                                   |
+| billing_provider_city                    | 33              | string          |                                                   |
+| billing_provider_state                   | 33              | string          |                                                   |
+| billing_provider_zip                     | 33              | string          |                                                   |
+| billing_provider_phone                   | 33              | phone           |                                                   |
+| billing_provider_npi                     | 33a             | string          |                                                   |
+| billing_provider_legacy_number           | 33b             | string          |                                                   |
+| services                                 | 24              | array           |  (see Service Fields listed below)                |
++------------------------------------------+-----------------+-----------------+---------------------------------------------------+
+
+* Diagnosis codes will be sent as an array of string values.  ( ie ['V103.01','102.2'] )
+
+Service Fields:
+
++------------------------------------------+-----------------+-----------------+
+| Field Name                               | 1500 Location   | Field Type      |
++------------------------------------------+-----------------+-----------------+
+| date_of_service_from                     | 24A             | date            |
+| date_of_service_to                       | 24A             | date            |
+| place_of_service                         | 24B             | string          |
+| emergency                                | 24C             | string          |
+| procedure_code                           | 24D             | string          |
+| modifier_1                               | 24D             | string          |
+| modifier_2                               | 24D             | string          |
+| modifier_3                               | 24D             | string          |
+| modifier_4                               | 24D             | string          |
+| diagnosis_pointer                        | 24E             | string          |
+| charges                                  | 24F             | money           |
+| days_or_units                            | 24G             | string          |
+| epsdt_family_plan                        | 24H             | string          |
+| legacy_number_qualifier                  | 24J             | string          |
+| legacy_number                            | 24J             | string          |
+| npi_number                               | 24J             | string          |
+| description                              | 24              | string          |
++------------------------------------------+-----------------+-----------------+

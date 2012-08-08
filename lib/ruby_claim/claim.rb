@@ -22,13 +22,12 @@ module RubyClaim
       @diagnosis_codes << Struct::DiagnosisCode.new(id,value)
     end
 
-    def to_pdf(filename)
-      RubyClaim::Outputters::PDF.new(self)
-      outputter.draw(filename)
+    def to_pdf(filename = nil)
+      RubyClaim::Outputters::PDF.new(self).draw(filename)
     end
 
-    def to_json
-      RubyClaim::Outputters::JSON.new(self).draw
+    def to_json(filename = nil)
+      RubyClaim::Outputters::JSON.new(self).draw(filename)
     end
 
     def method_missing(method_name, *args)

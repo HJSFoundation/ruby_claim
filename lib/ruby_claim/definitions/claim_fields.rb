@@ -1,7 +1,8 @@
 module RubyClaim::Definition
   class ClaimFields < RubyClaim::Definition::Base
+    attr_accessor :carrier_city, :carrier_state, :carrier_zip
 
-    field     name:        :carrier_name_line,
+    field     name:        :carrier_name,
               id:          nil,
               top:         33,
               left:        328.59,
@@ -46,7 +47,7 @@ module RubyClaim::Definition
                              :tricare_champus => 120.32,
                              :medicaid => 69.21,
                              :medicare => 20.87,
-                             :carrier_other => 336.34 }
+                             :other => 336.34 }
 
     field     name:        :insured_id_number,
               id:          '1a',
@@ -334,7 +335,7 @@ module RubyClaim::Definition
               width:       211.38,
               type:        :string
 
-    field     name:        :insured_is_there_another_health_benefit_plan,
+    field     name:        :insured_other_health_benefit_plan_exists,
               id:          '11d',
               top:         324.06,
               left:        '',
