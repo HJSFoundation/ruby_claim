@@ -1,3 +1,4 @@
+require 'bunler/setup'
 require 'require_relative'
 require 'prawn/measurement_extensions'
 require 'prawn'
