@@ -6,3 +6,4 @@ gemspec
 gem 'pry'
 gem 'require_relative'
 gem 'prawn'
+gem 'prawn/measurement_extensions'

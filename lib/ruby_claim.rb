@@ -1,11 +1,7 @@
-require 'bunler/setup'
-require 'require_relative'
-require 'prawn/measurement_extensions'
 require 'prawn'
+require 'prawn/measurement_extensions'
 require 'json'
 require 'date'
-require 'pry'
-
 
 require_relative "ruby_claim/version"
 require_relative "ruby_claim/field"

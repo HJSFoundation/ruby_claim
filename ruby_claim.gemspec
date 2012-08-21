@@ -14,4 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "ruby_claim"
   gem.require_paths = ["lib"]
   gem.version       = RubyClaim::VERSION
+
+  gem.add_dependency("prawn", "~> 1.0.0rc1")
 end

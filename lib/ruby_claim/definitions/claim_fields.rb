@@ -322,7 +322,7 @@ module RubyClaim::Definition
     field     name:        :insured_employer_or_school_name,
               id:          '11b',
               top:         275.78,
-              left:        13.25.cm,
+              left:        13.25,
               height:      10.28,
               width:       211.25,
               type:        :string
