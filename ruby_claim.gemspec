@@ -4,8 +4,8 @@ require File.expand_path('../lib/ruby_claim/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Jonathan Jackson"]
   gem.email         = ["jonj@promedicalinc.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{This gem allows you to specify a 837 claim output into an object and write that object onto a CMS1500 form.}
+  gem.summary       = %q{This gem allows you to specify a 837 claim output into an object and write that object onto a CMS1500 form.}
   gem.homepage      = ""
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }

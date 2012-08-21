@@ -16,7 +16,7 @@ module RubyClaim::Outputters
         @pdf.image File.join(File.dirname(__FILE__), "../ext/cms_1500.jpg"), :scale => 0.36
       end
 
-      @claim.carrier_city_state_zip = @claim.carrier_city + ' ' + @claim.carrier_state + ' ' + @claim.carrier_zip
+      @claim.carrier_city_state_zip = @claim.carrier_city.to_s + ' ' + @claim.carrier_state.to_s + ' ' + @claim.carrier_zip.to_s
 
       @claim.claim_fields.values.each do |field_name, value|
         field = @claim.claim_fields.get_field(field_name)
