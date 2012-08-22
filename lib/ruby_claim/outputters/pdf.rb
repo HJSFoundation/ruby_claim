@@ -20,6 +20,7 @@ module RubyClaim::Outputters
 
       @claim.claim_fields.values.each do |field_name, value|
         field = @claim.claim_fields.get_field(field_name)
+        next if value.nil? || value == ""
 
         if field.bounding?
           mark_field(value, field)
