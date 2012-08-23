@@ -30,6 +30,8 @@ module RubyClaim::Outputters
       end
 
       @claim.diagnosis_codes.each do |dc|
+        next if dc.value.nil?
+
         field = @claim.claim_fields.get_field(:diagnosis)
         val1 = dc.value.split(".").first
         val2 = val1.length > 3 ?  dc.value.split(".").last.rjust(3) : dc.value.split(".").last # pad 1 char left on value 2 if val1 diag_code is 4 digits
