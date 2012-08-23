@@ -612,7 +612,7 @@ module RubyClaim::Definition
     field     name:        :service_facility_state,
               id:          '32',
               top:         730.44,
-              left:        299.06,
+              left:        285.06,
               height:      9.79,
               width:       19,
               type:        :string
@@ -620,7 +620,7 @@ module RubyClaim::Definition
     field     name:        :service_facility_zip,
               id:          '32',
               top:         730.44,
-              left:        316.91,
+              left:        306.91,
               height:      9.79,
               width:       54.12,
               type:        :string
@@ -668,7 +668,7 @@ module RubyClaim::Definition
     field     name:        :billing_provider_state,
               id:          '33',
               top:         732.44,
-              left:        552.2,
+              left:        462.45,
               height:      9.79,
               width:       19,
               type:        :string
@@ -676,7 +676,7 @@ module RubyClaim::Definition
     field     name:        :billing_provider_zip,
               id:          '33',
               top:         732.44,
-              left:        511.52,
+              left:        490.52,
               height:      9.79,
               width:       54.12,
               type:        :string
