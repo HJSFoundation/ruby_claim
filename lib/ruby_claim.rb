@@ -96,7 +96,8 @@ if __FILE__ == $0
   c.medicaid_resubmission_code               = 'MRC-1'
   c.medicaid_resubmission_orginal_ref_number = 'probably unused'
   c.prior_authorization_number               = '100000000020310'
-  c.federal_tax_id                           = :ssn
+  c.federal_tax_id                           = '123456789'
+  c.federal_tax_id_type                      = :ssn
   c.patient_account_number                   = '999999999999999'
   c.accepts_assignment                       = false
 

@@ -518,6 +518,14 @@ module RubyClaim::Definition
 
     field     name:        :federal_tax_id,
               id:          '25',
+              top:         683.57,
+              left:        23.93,
+              height:      10.28,
+              width:       101.47,
+              type:        :string
+
+    field     name:        :federal_tax_id_type,
+              id:          '25',
               top:         683.74,
               left:        nil,
               height:      10.24,
