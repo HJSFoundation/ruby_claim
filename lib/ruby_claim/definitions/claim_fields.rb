@@ -488,8 +488,8 @@ module RubyClaim::Definition
               width:       26.36,
               type:        :diagnosis_code,
               options:     { 1 => [{top:467.63, left:36.69},  {top:467.37, left:63.56}],
-                             2 => [{top:491.94, left:36.69},  {top:491.94, left:63.56}],
-                             3 => [{top:467.63, left:231.43}, {top:467.63, left:258.3}],
+                             2 => [{top:467.63, left:231.43}, {top:467.63, left:258.3}],
+                             3 => [{top:491.94, left:36.69},  {top:491.94, left:63.56}],
                              4 => [{top:491.94, left:231.43}, {top:491.94, left:258.3}] }
 
     field     name:        :medicaid_resubmission_code,
