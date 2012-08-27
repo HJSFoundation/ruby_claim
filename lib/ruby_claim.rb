@@ -108,7 +108,7 @@ if __FILE__ == $0
 
   c.service_facility_name                    = "Service or Facility Name - OR"
   c.service_facility_address                 = "12345 Example Rd"
-  c.service_facility_city                    = "Miami"
+  c.service_facility_city                    = "Port St. Lucy"
   c.service_facility_state                   = "FL"
   c.service_facility_zip                     = "34476"
   c.service_facility_npi                     = "10000000000"

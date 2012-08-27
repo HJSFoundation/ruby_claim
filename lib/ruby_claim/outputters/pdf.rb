@@ -17,6 +17,8 @@ module RubyClaim::Outputters
       end
 
       @claim.carrier_city_state_zip = @claim.carrier_city.to_s + ' ' + @claim.carrier_state.to_s + ' ' + @claim.carrier_zip.to_s
+      @claim.billing_provider_city_state_zip = @claim.billing_provider_city.to_s + ' ' + @claim.billing_provider_state.to_s + ' ' + @claim.billing_provider_zip.to_s
+      @claim.service_facility_city_state_zip = @claim.service_facility_city.to_s + ' ' + @claim.service_facility_state.to_s + ' ' + @claim.service_facility_zip.to_s
 
       @claim.claim_fields.values.each do |field_name, value|
         field = @claim.claim_fields.get_field(field_name)

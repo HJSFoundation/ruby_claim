@@ -1,6 +1,6 @@
 module RubyClaim::Definition
   class ClaimFields < RubyClaim::Definition::Base
-    attr_accessor :carrier_city, :carrier_state, :carrier_zip
+    attr_accessor :carrier_city, :carrier_state, :carrier_zip, :billing_provider_city, :billing_provider_state, :billing_provider_zip, :service_facility_city, :service_facility_state, :service_facility_zip
 
     field     name:        :carrier_name,
               id:          nil,
@@ -611,7 +611,7 @@ module RubyClaim::Definition
               type:        :string,
               size:        "10"
 
-    field     name:        :service_facility_city,
+    field     name:        :service_facility_city_state_zip,
               id:          '32',
               top:         730.44,
               left:        180.83,
@@ -620,23 +620,23 @@ module RubyClaim::Definition
               type:        :string,
               size:        "10"
 
-    field     name:        :service_facility_state,
-              id:          '32',
-              top:         730.44,
-              left:        285.06,
-              height:      9.79,
-              width:       19,
-              type:        :string,
-              size:        "10"
-
-    field     name:        :service_facility_zip,
-              id:          '32',
-              top:         730.44,
-              left:        306.91,
-              height:      9.79,
-              width:       54.12,
-              type:        :string,
-              size:        "12"
+#    field     name:        :service_facility_state,
+#              id:          '32',
+#              top:         730.44,
+#              left:        285.06,
+#              height:      9.79,
+#              width:       19,
+#              type:        :string,
+#              size:        "10"
+#
+#    field     name:        :service_facility_zip,
+#              id:          '32',
+#              top:         730.44,
+#              left:        306.91,
+#              height:      9.79,
+#              width:       54.12,
+#              type:        :string,
+#              size:        "12"
 
     field     name:        :service_facility_npi,
               id:          '32a',
@@ -672,7 +672,7 @@ module RubyClaim::Definition
               type:        :string,
               size:        "10"
 
-    field     name:        :billing_provider_city,
+    field     name:        :billing_provider_city_state_zip,
               id:          '33',
               top:         732.44,
               left:        375.44,
@@ -681,23 +681,23 @@ module RubyClaim::Definition
               type:        :string,
               size:        "10"
 
-    field     name:        :billing_provider_state,
-              id:          '33',
-              top:         732.44,
-              left:        462.45,
-              height:      9.79,
-              width:       19,
-              type:        :string,
-              size:        "10"
-
-    field     name:        :billing_provider_zip,
-              id:          '33',
-              top:         732.44,
-              left:        490.52,
-              height:      9.79,
-              width:       54.12,
-              type:        :string,
-              size:        "10"
+#    field     name:        :billing_provider_state,
+#              id:          '33',
+#              top:         732.44,
+#              left:        462.45,
+#              height:      9.79,
+#              width:       19,
+#              type:        :string,
+#              size:        "10"
+#
+#    field     name:        :billing_provider_zip,
+#              id:          '33',
+#              top:         732.44,
+#              left:        490.52,
+#              height:      9.79,
+#              width:       54.12,
+#              type:        :string,
+#              size:        "10"
 
     field     name:        :billing_provider_phone,
               id:          '33',
