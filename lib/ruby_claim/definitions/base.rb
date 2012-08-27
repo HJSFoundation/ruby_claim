@@ -16,6 +16,7 @@ module RubyClaim::Definition
       f.height      = field[:height]
       f.width       = field[:width]
       f.name        = field[:name]
+      f.size        = field[:size]
 
       fields << f
     end

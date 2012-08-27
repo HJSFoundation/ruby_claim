@@ -33,12 +33,10 @@ if __FILE__ == $0
   c.insured_state                            = 'FL'
   c.insured_zip                              = '34476'
   c.insured_phone                            = '3525555555'
-  c.insured_employer_or_school_name          = 'University of Central London'
   c.insured_other_health_benefit_plan_exists = false
   c.insured_policy_or_group_number           = '12341251'
   c.insured_date_of_birth                    = '1947-11-04'
   c.insured_sex                              = :male
-  c.insured_insurance_plan_or_program_name   = "Blue Cross Bad Wolf"
 
   c.other_insured_name                       = 'Flinstone, Frederick, C'
   c.other_insured_sex                        = :male

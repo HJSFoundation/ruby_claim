@@ -84,7 +84,7 @@ module RubyClaim::Outputters
     end
 
     def mark_string(value,field)
-      @pdf.draw_text value, :at => [field.left, field.bottom]
+      @pdf.draw_text value, :at => [field.left, field.bottom], :size => field.size.nil? ? 11 : field.size
     end
 
     def mark_checkbox(value,field)

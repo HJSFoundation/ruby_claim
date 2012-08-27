@@ -599,7 +599,8 @@ module RubyClaim::Definition
               left:        180.83,
               height:      9.79,
               width:       189.05,
-              type:        :string
+              type:        :string,
+              size:        "10"
 
     field     name:        :service_facility_address,
               id:          '32',
@@ -607,7 +608,8 @@ module RubyClaim::Definition
               left:        180.83,
               height:      9.79,
               width:       189.05,
-              type:        :string
+              type:        :string,
+              size:        "10"
 
     field     name:        :service_facility_city,
               id:          '32',
@@ -615,7 +617,8 @@ module RubyClaim::Definition
               left:        180.83,
               height:      9.79,
               width:       189.05,
-              type:        :string
+              type:        :string,
+              size:        "10"
 
     field     name:        :service_facility_state,
               id:          '32',
@@ -623,7 +626,8 @@ module RubyClaim::Definition
               left:        285.06,
               height:      9.79,
               width:       19,
-              type:        :string
+              type:        :string,
+              size:        "10"
 
     field     name:        :service_facility_zip,
               id:          '32',
@@ -631,7 +635,8 @@ module RubyClaim::Definition
               left:        306.91,
               height:      9.79,
               width:       54.12,
-              type:        :string
+              type:        :string,
+              size:        "12"
 
     field     name:        :service_facility_npi,
               id:          '32a',
@@ -655,7 +660,8 @@ module RubyClaim::Definition
               left:        375.44,
               height:      9.79,
               width:       189.05,
-              type:        :string
+              type:        :string,
+              size:        "10"
 
     field     name:        :billing_provider_address,
               id:          '33',
@@ -663,7 +669,8 @@ module RubyClaim::Definition
               left:        375.44,
               height:      9.79,
               width:       189.05,
-              type:        :string
+              type:        :string,
+              size:        "10"
 
     field     name:        :billing_provider_city,
               id:          '33',
@@ -671,7 +678,8 @@ module RubyClaim::Definition
               left:        375.44,
               height:      9.79,
               width:       189.05,
-              type:        :string
+              type:        :string,
+              size:        "10"
 
     field     name:        :billing_provider_state,
               id:          '33',
@@ -679,7 +687,8 @@ module RubyClaim::Definition
               left:        462.45,
               height:      9.79,
               width:       19,
-              type:        :string
+              type:        :string,
+              size:        "10"
 
     field     name:        :billing_provider_zip,
               id:          '33',
@@ -687,7 +696,8 @@ module RubyClaim::Definition
               left:        490.52,
               height:      9.79,
               width:       54.12,
-              type:        :string
+              type:        :string,
+              size:        "10"
 
     field     name:        :billing_provider_phone,
               id:          '33',

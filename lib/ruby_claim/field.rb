@@ -1,6 +1,6 @@
 module RubyClaim
   class Field
-    attr_accessor :id, :top, :left, :width, :height, :name, :type, :options
+    attr_accessor :id, :top, :left, :width, :height, :name, :type, :options, :size
 
     def bottom
       (792.0 - self.top) - self.height.to_f
