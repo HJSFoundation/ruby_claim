@@ -10,6 +10,7 @@ require_relative "ruby_claim/definitions/claim_fields"
 require_relative "ruby_claim/definitions/service_fields"
 require_relative "ruby_claim/outputters/pdf"
 require_relative "ruby_claim/outputters/json"
+require_relative 'ruby_claim/diagnosis_code'
 require_relative "ruby_claim/claim"
 
 

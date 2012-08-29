@@ -7,8 +7,6 @@ module RubyClaim
       @services        = []
       @hide_background = !!options[:hide_background]
       @diagnosis_codes = []
-
-      Struct.new "DiagnosisCode", :id, :value
     end
 
     def build_service
@@ -19,11 +17,14 @@ module RubyClaim
     end
 
     def set_diagnosis_code(id, value)
-      @diagnosis_codes << Struct::DiagnosisCode.new(id,value)
+      @diagnosis_codes << RubyClaim::DiagnosisCode.new(id,value)
     end
 
-    def to_pdf(filename = nil)
-      RubyClaim::Outputters::PDF.new(self).draw(filename)
+    def to_pdf(options = {})
+      filename       = options.delete(:filename)
+      prawn_document = options.delete(:prawn_document)
+
+      RubyClaim::Outputters::PDF.new(self).draw(:filename => filename, :prawn_document => prawn_document)
     end
 
     def to_json(filename = nil)

@@ -4,13 +4,18 @@ module RubyClaim::Outputters
       @claim = claim
     end
 
-    def draw(filename = nil)
-      options = { :page_size => 'LETTER',
-                  :page_layout => :portrait,
-                  :margin => 0
-                }
+    def draw(options = {})
+      filename       = options.delete(:filename)
+      prawn_document = options.delete(:prawn_document)
 
-      @pdf = Prawn::Document.new(options)
+      @pdf =  if prawn_document
+                prawn_document.start_new_page
+                prawn_document
+              else
+                Prawn::Document.new(:page_size => 'LETTER',
+                                    :page_layout => :portrait,
+                                    :margin => 0)
+              end
 
       draw_claim
       draw_services
@@ -68,7 +73,7 @@ module RubyClaim::Outputters
           draw_service(service_fields, i)
         end
 
-        draw_service_totals
+        draw_service_totals(page_services)
         pages += 1
       end
     end
@@ -90,9 +95,9 @@ module RubyClaim::Outputters
       total_charge = services.inject(0.0) {|m,s| m += s.charges; m}
       total_paid   = services.inject(0.0) {|m,s| m += s.service_paid_amount; m}
 
-      mark_field(:total_charge, total_charge)
-      mark_field(:amount_paid,  total_paid)
-      mark_field(:balance_due,  total_charge - total_paid)
+      mark_field(total_charge,              @claim.claim_fields.get_field(:total_charge))
+      mark_field(total_paid,                @claim.claim_fields.get_field(:amount_paid))
+      mark_field(total_charge - total_paid, @claim.claim_fields.get_field(:balance_due))
     end
 
     def mark_field(value,field)
