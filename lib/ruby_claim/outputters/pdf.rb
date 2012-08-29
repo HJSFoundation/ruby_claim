@@ -12,6 +12,15 @@ module RubyClaim::Outputters
 
       @pdf = Prawn::Document.new(options)
 
+      draw_claim
+      draw_services
+
+      @pdf.render_file(filename) if filename
+
+      @pdf
+    end
+
+    def draw_claim
       unless @claim.hide_background
         @pdf.image File.join(File.dirname(__FILE__), "../ext/cms_1500.jpg"), :scale => 0.36
       end
@@ -41,25 +50,37 @@ module RubyClaim::Outputters
         @pdf.draw_text val1, :at => [ field.options[dc.id][0][:left], (792.0 - field.options[dc.id][0][:top] - field.height) ]
         @pdf.draw_text val2, :at => [ field.options[dc.id][1][:left], (792.0 - field.options[dc.id][1][:top] - field.height) ]
       end
+    end
 
-      @claim.services.each_with_index do |service_fields,i|
-        next if service_fields.values.nil?
+    def draw_services
+      pages = 1
+      @claim.services.each_slice(6) do |page_services|
+        if pages > 1
+          @pdf.start_new_page
+          draw_claim
+        end
 
-        service_fields.values.each do |field_name, value|
-          field     = service_fields.get_field(field_name)
-          field.top = service_fields.row_tops[i]
+        page_services.each_with_index do |service_fields,i|
+          next if service_fields.values.nil?
 
-          if field.bounding?
-            mark_field(value,field)
-          else
-            @pdf.draw_text value, :at => [field.left, bottom]
-          end
+          draw_service(service_fields, i)
+        end
+
+        pages += 1
+      end
+    end
+
+    def draw_service(service_fields, index)
+      service_fields.values.each do |field_name, value|
+        field     = service_fields.get_field(field_name)
+        field.top = service_fields.row_tops[index]
+
+        if field.bounding?
+          mark_field(value,field)
+        else
+          @pdf.draw_text value, :at => [field.left, bottom]
         end
       end
-
-      @pdf.render_file(filename) if filename
-
-      @pdf
     end
 
     def mark_field(value,field)

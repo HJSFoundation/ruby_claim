@@ -123,7 +123,7 @@ if __FILE__ == $0
   c.billing_provider_npi                     = "10000000000"
   c.billing_provider_legacy_number           = "10000000000"
 
-  (0...6).each do |i|
+  (0...70).each do |i|
     c.build_service do |s|
       s.date_of_service_from    = c.time_rand
       s.date_of_service_to      = c.time_rand
