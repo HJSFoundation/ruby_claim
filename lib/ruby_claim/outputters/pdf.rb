@@ -129,7 +129,7 @@ module RubyClaim::Outputters
           :size => field.size,
           :width => field.width, :height => field.height,
           :overflow => :shrink_to_fit,
-          :min_font_size => 9
+          :min_font_size => 8
     end
 
     def mark_checkbox(value,field)
