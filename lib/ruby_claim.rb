@@ -115,7 +115,7 @@ if __FILE__ == $0
   c.service_facility_npi                     = "10000000000"
   c.service_facility_legacy_number           = "10000000000"
 
-  c.billing_provider_name                    = "North Shore ANES Partners"
+  c.billing_provider_name                    = "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
   c.billing_provider_address                 = "12345 Example Rd"
   c.billing_provider_city                    = "Miami"
   c.billing_provider_state                   = "FL"
@@ -146,7 +146,7 @@ if __FILE__ == $0
     end
   end
 
-  c.to_pdf('sample.pdf')
+  c.to_pdf(:filename => 'sample.pdf')
   c.to_json('sample.json')
 
   `open sample.pdf`

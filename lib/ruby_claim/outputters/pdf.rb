@@ -43,7 +43,7 @@ module RubyClaim::Outputters
         if field.bounding?
           mark_field(value, field)
         else
-          @pdf.draw_text value, :at => [field.left, field.bottom]
+          @pdf.draw_text value, :at => [field.left, field.top_field_coordinate_from_page_bottom]
         end
       end
 
@@ -81,19 +81,19 @@ module RubyClaim::Outputters
     def draw_service(service_fields, index)
       service_fields.values.each do |field_name, value|
         field     = service_fields.get_field(field_name)
-        field.top = service_fields.row_tops[index]
+        field.top = if [:description, :legacy_number_qualifier, :legacy_number].include?(field.name)
+                      service_fields.row_tops[index] - field.height
+                    else
+                      service_fields.row_tops[index]
+                    end
 
-        if field.bounding?
-          mark_field(value,field)
-        else
-          @pdf.draw_text value, :at => [field.left, bottom]
-        end
+        mark_field(value,field)
       end
     end
 
     def draw_service_totals(services)
       total_charge = services.inject(0.0) {|m,s| m += s.charges; m}
-      total_paid   = services.inject(0.0) {|m,s| m += s.service_paid_amount; m}
+      total_paid   = services.inject(0.0) {|m,s| m += s.service_paid_amount || 0; m}
 
       mark_field(total_charge,              @claim.claim_fields.get_field(:total_charge))
       mark_field(total_paid,                @claim.claim_fields.get_field(:amount_paid))
@@ -120,26 +120,31 @@ module RubyClaim::Outputters
     def mark_boolean(value,field)
       left = value == true ? field.options[:yes] : field.options[:no]
 
-      @pdf.draw_text 'X', :at => [left, field.bottom]
+      @pdf.text_box 'X', :at => [left, field.top_field_coordinate_from_page_bottom]
     end
 
     def mark_string(value,field)
-      @pdf.draw_text value, :at => [field.left, field.bottom], :size => field.size.nil? ? 11 : field.size
+      @pdf.text_box value.to_s,
+          :at => [field.left, field.top_field_coordinate_from_page_bottom],
+          :size => field.size,
+          :width => field.width, :height => field.height,
+          :overflow => :shrink_to_fit,
+          :min_font_size => 9
     end
 
     def mark_checkbox(value,field)
       left = field.options.nil? ? field.left : field.options[value]
 
-      @pdf.draw_text 'X', :at => [left, field.bottom]
+      @pdf.text_box 'X', :at => [left, field.top_field_coordinate_from_page_bottom]
     end
 
     def mark_date(value,field)
       date = Date.parse(value)
       year = field.options[:full_century] == true ? "%Y" : "%y"
 
-      @pdf.draw_text date.strftime("%m"), :at => [field.options[:month] ,field.bottom]
-      @pdf.draw_text date.strftime("%d"), :at => [field.options[:day], field.bottom]
-      @pdf.draw_text date.strftime(year), :at => [field.options[:year], field.bottom]
+      @pdf.text_box date.strftime("%m"), :at => [field.options[:month] ,field.top_field_coordinate_from_page_bottom]
+      @pdf.text_box date.strftime("%d"), :at => [field.options[:day], field.top_field_coordinate_from_page_bottom]
+      @pdf.text_box date.strftime(year), :at => [field.options[:year], field.top_field_coordinate_from_page_bottom]
     end
 
     def mark_phone(value,field)
@@ -147,7 +152,7 @@ module RubyClaim::Outputters
 
       field.options.each do |section, (left, width)|
         val = section == :area_code ? area_code : number[0,3] + '-' + number[3,4]
-        @pdf.draw_text val, :at => [left, field.bottom]
+        @pdf.text_box val, :at => [left, field.top_field_coordinate_from_page_bottom]
       end
     end
 
@@ -156,8 +161,8 @@ module RubyClaim::Outputters
       dollars = value.to_s.split(".").first.rjust(padding)
       cents   = value.round(2).to_s.split(".").last.rjust(2,"0")
 
-      @pdf.draw_text dollars, :at => [field.options[:dollars].first, field.bottom]
-      @pdf.draw_text cents,   :at => [field.options[:cents].first, field.bottom]
+      @pdf.text_box dollars, :at => [field.options[:dollars].first, field.top_field_coordinate_from_page_bottom]
+      @pdf.text_box cents,   :at => [field.options[:cents].first, field.top_field_coordinate_from_page_bottom]
     end
   end
 end

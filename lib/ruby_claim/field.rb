@@ -2,8 +2,12 @@ module RubyClaim
   class Field
     attr_accessor :id, :top, :left, :width, :height, :name, :type, :options, :size
 
-    def bottom
-      (792.0 - self.top.to_f) - self.height.to_f
+    def size
+      @size || 12
+    end
+
+    def top_field_coordinate_from_page_bottom
+      792.0 - self.top.to_f
     end
 
     def bounding?

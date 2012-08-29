@@ -599,8 +599,7 @@ module RubyClaim::Definition
               left:        180.83,
               height:      9.79,
               width:       189.05,
-              type:        :string,
-              size:        "10"
+              type:        :string
 
     field     name:        :service_facility_address,
               id:          '32',
@@ -608,8 +607,7 @@ module RubyClaim::Definition
               left:        180.83,
               height:      9.79,
               width:       189.05,
-              type:        :string,
-              size:        "10"
+              type:        :string
 
     field     name:        :service_facility_city_state_zip,
               id:          '32',
@@ -617,8 +615,7 @@ module RubyClaim::Definition
               left:        180.83,
               height:      9.79,
               width:       189.05,
-              type:        :string,
-              size:        "10"
+              type:        :string
 
 #    field     name:        :service_facility_state,
 #              id:          '32',
@@ -660,8 +657,7 @@ module RubyClaim::Definition
               left:        375.44,
               height:      9.79,
               width:       189.05,
-              type:        :string,
-              size:        "10"
+              type:        :string
 
     field     name:        :billing_provider_address,
               id:          '33',
@@ -669,8 +665,7 @@ module RubyClaim::Definition
               left:        375.44,
               height:      9.79,
               width:       189.05,
-              type:        :string,
-              size:        "10"
+              type:        :string
 
     field     name:        :billing_provider_city_state_zip,
               id:          '33',
@@ -678,8 +673,7 @@ module RubyClaim::Definition
               left:        375.44,
               height:      9.79,
               width:       189.05,
-              type:        :string,
-              size:        "10"
+              type:        :string
 
 #    field     name:        :billing_provider_state,
 #              id:          '33',

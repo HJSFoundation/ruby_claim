@@ -5,5 +5,4 @@ gemspec
 
 gem 'pry'
 gem 'require_relative'
-gem 'prawn'
-gem 'prawn/measurement_extensions'
+gem 'prawn', :git => 'git://github.com/prawnpdf/prawn.git'
