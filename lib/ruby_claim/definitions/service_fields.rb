@@ -1,5 +1,6 @@
 module RubyClaim::Definition
   class ServiceFields < RubyClaim::Definition::Base
+    attr_accessor :service_paid_amount # to make splitting claims with more than 6 services
 
     field     name:        :date_of_service_from,
               id:          '24A',

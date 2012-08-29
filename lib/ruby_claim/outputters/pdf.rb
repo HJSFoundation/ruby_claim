@@ -30,6 +30,8 @@ module RubyClaim::Outputters
       @claim.service_facility_city_state_zip = @claim.service_facility_city.to_s + ' ' + @claim.service_facility_state.to_s + ' ' + @claim.service_facility_zip.to_s
 
       @claim.claim_fields.values.each do |field_name, value|
+        next if [:total_charge, :amount_paid, :balance_due].include?(field_name)
+
         field = @claim.claim_fields.get_field(field_name)
         next if value.nil? || value == ""
 
@@ -66,6 +68,7 @@ module RubyClaim::Outputters
           draw_service(service_fields, i)
         end
 
+        draw_service_totals
         pages += 1
       end
     end
@@ -81,6 +84,15 @@ module RubyClaim::Outputters
           @pdf.draw_text value, :at => [field.left, bottom]
         end
       end
+    end
+
+    def draw_service_totals(services)
+      total_charge = services.inject(0.0) {|m,s| m += s.charges; m}
+      total_paid   = services.inject(0.0) {|m,s| m += s.service_paid_amount; m}
+
+      mark_field(:total_charge, total_charge)
+      mark_field(:amount_paid,  total_paid)
+      mark_field(:balance_due,  total_charge - total_paid)
     end
 
     def mark_field(value,field)
