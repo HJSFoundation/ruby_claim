@@ -3,7 +3,7 @@ module RubyClaim
     attr_accessor :id, :top, :left, :width, :height, :name, :type, :options, :size
 
     def bottom
-      (792.0 - self.top) - self.height.to_f
+      (792.0 - self.top.to_f) - self.height.to_f
     end
 
     def bounding?
