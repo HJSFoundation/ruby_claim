@@ -4,22 +4,32 @@ module RubyClaim::Outputters
       @claim = claim
     end
 
-    def draw(filename = nil)
-      output                   = @claim.values
-      output[:services]        = @claim.services.map(&:values)
-      output[:diagnosis_codes] = @claim.diagnosis_codes.map{|d| d.value }
+    def claim_hash
+      return @claim_hash if @claim_hash
+
+      @claim_hash                   = @claim.values
+      @claim_hash[:services]        = @claim.services.map(&:values)
+      @claim_hash[:diagnosis_codes] = @claim.diagnosis_codes.map{|d| d.value }
 
       [:carrier_city, :carrier_state, :carrier_zip].each do |field|
-        output[field]          = @claim.send(field)
+        @claim_hash[field]          = @claim.send(field)
       end
 
-      output.delete(:diagnosis)
+      @claim_hash.delete(:diagnosis)
 
       if filename
-        File.open(filename.to_s, "w") { |io|  io.write output.to_json}
+        File.open(filename.to_s, "w") { |io|  io.write @claim_hash.to_json}
       end
 
-      output.to_json
+      @claim_hash
+    end
+
+    def draw(filename = nil)
+      if filename
+        File.open(filename.to_s, "w") { |io|  io.write claim_hash.to_json}
+      end
+
+      claim_hash.to_json
     end
   end
 end
