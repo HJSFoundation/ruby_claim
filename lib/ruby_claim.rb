@@ -90,7 +90,7 @@ if __FILE__ == $0
   c.set_diagnosis_code(1, 'V722.83')
   c.set_diagnosis_code(2, '720.2')
   c.set_diagnosis_code(3, '100.2')
-  c.set_diagnosis_code(4, '100.2')
+  c.set_diagnosis_code(4, '100')
 
   c.medicaid_resubmission_code               = 'MRC-1'
   c.medicaid_resubmission_orginal_ref_number = 'probably unused'

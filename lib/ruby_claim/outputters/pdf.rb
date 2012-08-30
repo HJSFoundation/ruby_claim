@@ -51,8 +51,8 @@ module RubyClaim::Outputters
         next if dc.value.nil?
 
         field = @claim.claim_fields.get_field(:diagnosis)
-        val1 = dc.value.split(".").first
-        val2 = val1.length > 3 ?  dc.value.split(".").last.rjust(3) : dc.value.split(".").last # pad 1 char left on value 2 if val1 diag_code is 4 digits
+        val1, val2 = dc.value.split(".")
+        val2 = val1.length > 3 ?  val2.to_s.rjust(3) : val2.to_s # pad 1 char left on value 2 if val1 diag_code is 4 digits
 
         @pdf.draw_text val1, :at => [ field.options[dc.id][0][:left], (792.0 - field.options[dc.id][0][:top] - field.height) ]
         @pdf.draw_text val2, :at => [ field.options[dc.id][1][:left], (792.0 - field.options[dc.id][1][:top] - field.height) ]
