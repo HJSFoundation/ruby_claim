@@ -17,10 +17,6 @@ module RubyClaim::Outputters
 
       @claim_hash.delete(:diagnosis)
 
-      if filename
-        File.open(filename.to_s, "w") { |io|  io.write @claim_hash.to_json}
-      end
-
       @claim_hash
     end
 
